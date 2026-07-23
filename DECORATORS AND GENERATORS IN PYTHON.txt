@@ -1,0 +1,161 @@
+GENERATORS - The Problem Generators Solve
+-> A Generator is a special type of function in Python that uses the yield keyword to produce values one at a time, only when needed, instead of generating and storing all values in memory at once
+A generator is an iterator-producing function that returns values lazily using the yield statement
+
+Idi meekosam SPARK: A generator generates data one item at a time and pauses its execution after each value until the next value is requested
+
+ilaa Imagine you have like: 
+numbers = [1,2,3,4,5] #No issue
+Now imagine: 10 Million Student Records or 50 GB Log File or 1 Million AI Predictions
+
+Mana Traditional approach ilaa:
+data = [all records]
+
+Generators provide: Data only when needed
+This concept is called: Lazy Evaluation
+
+# Idi Normal function: 
+def numbers():
+    return [1,2,3] # Give everything now - Here Memory allocated immediately
+result = numbers()
+print(result) # [1,2,3] - Everything returned immediately into memory
+
+# Generator Function
+def numbers():
+    yield 1
+    yield 2
+    yield 3
+
+Execution ilaa untundi: 
+Give one item
+Pause
+
+Give next item
+Pause
+
+Give next item
+Pause
+
+# Return
+def demo():
+    return 10
+    return 20
+Output: 10 - Function ends
+
+# Yield chudandi
+def demo():
+    yield 10
+    yield 20
+Output:
+10
+20
+Function pauses instead of ending
+
+Idi meekosam:
+yield
+ ↓
+pause
+ ↓
+resume
+ ↓
+pause
+ ↓
+resume
+
+# Example:
+def countdown(n):
+    while n > 0:
+        yield n
+        n -= 1
+
+for value in countdown(5):
+    print(value)
+Output chudandii: 
+5
+4
+3
+2
+1
+
+def demo():
+    print("Indupriya")
+    yield 1
+    print("Indumathi")
+    yield 2
+# g = demo()
+print(next(g)) # Indupriya
+                 1
+print(next(g)) # Indumathi
+                 2
+print(next(g)) # StopIteration
+
+Generator Expression - Like list comprehension elaano chudham
+List Comprehension:
+squares = [x*x for x in range(5)]
+# Ikkada idi Creates list
+
+Generator Expression:
+squares = (x*x for x in range(5)) # IDi Creates generator
+
+yield = pause
+return = stop
+
+When Generators Are Used in Algonex Projects :
+- Data Engineering
+- Processing huge files
+- AI Pipelines
+- Streaming datasets
+- ETL Systems
+- Loading millions of records
+- Log Processing
+- Real-time monitoring
+
+# Decorator - Backend Developers (Which Add functionality without modifying original function/code)
+-> A Decorator is a special Python function that modifies or extends the behavior of another function without changing the original function's code
+-> A decorator is a higher-order function that takes another function as input, adds additional functionality, and returns a modified function
+
+Idi meekosam Interns: A decorator is a wrapper that adds extra functionality to a function automatically
+
+Example: 
+def logger(func):
+    def wrapper():
+        print("Function Started")
+        func()
+        print("Function Ended")
+    return wrapper
+@logger
+def greet():
+    print("Emma health baundhaa")
+greet()
+
+Output:
+Function Started
+Hello
+Function Ended
+
+Why Use Decorators chudandii?
+Logging
+- Authentication
+- Authorization
+- Performance monitoring
+- API routing
+- Caching
+
+Used extensively in:
+- FastAPI
+- Flask
+- Django
+
+-> Generator = Produces Data Efficiently
+-> Decorator = Enhances Functions Automatically
+
+ Feature     Generator              Decorator             
+ Keyword | yield             | @                     
+ Purpose | Memory efficiency | Function enhancement  
+ Returns | Generator object  | Wrapped function      
+ Used In | Data pipelines    | Frameworks            
+ Focus   | Data flow         | Behavior modification 
+
+
+Generator: A generator is a function that uses yield to produce values lazily, one at a time, without storing all values in memory.
+Decorator: A decorator is a function that adds or modifies the behavior of another function without changing its original code
