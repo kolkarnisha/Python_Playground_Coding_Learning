@@ -15,3 +15,25 @@ tv.turn_on()
 power on
 motherboard started
 display activated'''
+#abstract classes
+#ABSTRACT METHODS
+""" these are available in the abc module (ABSTRACT BASE CLASS)"""
+"""import abc module"""
+from abc import ABC, abstractmethod
+class vehicle(abc):
+     pass
+class vehicle(abc):
+     @abstractmethod
+       def start(self):
+          pass
+''' here abstract method means every child class must implement the start method '''
+from abc import ABC,abstractmethod
+class vehicle(ABC):
+      @abstractmethod
+         def start(self):
+            pass
+class car(vehicle):
+        def start(self):
+          print("car strted")
+car=car()
+car.start()
