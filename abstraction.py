@@ -11,3 +11,7 @@ def __display(self):
   print("display activated")
 tv=TV()
 tv.turn_on()
+'''output: 
+power on
+motherboard started
+display activated'''
