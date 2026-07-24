@@ -1,0 +1,314 @@
+# 𝑺𝒆𝒕𝒔 𝒂𝒏𝒅 𝑺𝒕𝒓𝒊𝒏𝒈𝒔 𝑶𝒑𝒆𝒓𝒂𝒕𝒊𝒐𝒏𝒔
+
+Set Operations in Python (simple collections -> intelligent collections)
+Sets are VERY imp Interns because they automatically handle:
+- uniqueness
+- filtering
+- mathematical operations - Real systems use this heavily interns
+
+
+A set is an unordered collection of unique values
+-> Sets are powerful endukantee real software constantly works with uniqueness and matching
+
+Sets Features for Interns:
+ Unordered | No fixed indexing     
+ Unique    | No duplicate values   
+ Mutable   | Can add/remove values 
+
+Ex raaskondi:
+skills = {"Python", "SQL", "AI"}
+numbers = {1,2,2,3,3,3}
+print(numbers) # {1,2,3} - DUPLICATES AUTOMATICALLY REMOVED
+
+Enduku ee sets companiesloo:
+- Sets removes duplicate email IDs
+- duplicate usernames
+- duplicate product IDs -> Sets solve these problems efficiently
+
+ List                     Set           
+ Ordered            | Unordered     
+ Duplicates allowed | No duplicates 
+ Indexing possible  | No fixed indexing   
+
+BASIC SET OPERATIONS
+skills = {"Python", "SQL", "AI"}
+1. ADD ELEMENT -> add()
+skills.add("FastAPI") 
+print(skills) # {"Python", "SQL", "AI", "FastAPI"}
+2. ADD MULTIPLE VALUES -> update()
+skills.update(["Git", "Docker"])
+
+3. REMOVE ELEMENT -> remove()
+skills.remove("SQL") # If item doesn't exist error occurs
+4. SAFE REMOVE -> discard()
+skills.discard("Java") # No error if missing
+5. REMOVE RANDOM ITEM -> pop()
+skills.pop() # Since sets are unordered: random element removed
+6. CLEAR ENTIRE SET
+skills.clear()
+
+7. CHECK EXISTENCE
+print("Python" in skills) # Very common operation idi projectsloo
+
+MATHEMATICAL OPERATIONS of Sets -> THIS is where sets become powerful
+8. UNION (| or union()) - Combine all unique values
+a = {1,2,3,4,1}
+b = {3,4,5,1,2}
+print(a | b) # {1,2,3,4,5}
+print(a.union(b))
+
+''' Used in:
+- merging datasets
+- combining user permissions
+- AI keyword merging ''' 
+
+9. INTERSECTION (& or intersection()) -> Common values only
+a = {1,2,3,1,2,14,5}
+b = {2,3,4,5}
+print(a & b) # {2, 3, 5}
+print(a.intersection(b))
+
+'''Massively important in:
+- recommendation systems on youTube 
+- common skills matching 
+- mutual connections on LinkedIn/Instagram/Facebook'''
+
+Mini-Feature-2: ATS Resume Matching Keywords
+student_skills = {"Python", "SQL", "AI"}
+job_requirements = {"Python", "Git", "SQL"}
+
+matched = student_skills & job_requirements
+print(matched)
+
+10. DIFFERENCE (-) -> Values present in first set but not second
+a = {1,2,3}
+b = {2,3}
+print(a - b) # {1}
+print(b-a) # {}
+
+Ekkada antee: 
+- missing skills
+- incomplete requirements
+- filtering systems on LinkedIn (normal_users - premium_users)
+
+student_skills = {"Python", "SQL"}
+required_skills = {"Python", "SQL", "Git"}
+missing = required_skills - student_skills
+print(missing) # {'git'}
+
+11. SYMMETRIC DIFFERENCE (^) -> Values NOT common in both sets
+a = {1,2,3}
+b = {3,4,5}
+print(a ^ b) # {1,2,4,5}
+
+12. SUBSET -> TRUE if 'a'set elements exists in 'b' otherwise FALSE
+a = {1,2}
+b = {1,2,3}
+print(a.issubset(b)) # True
+print(b.issubset(a)) # False
+
+13. SUPERSET - 
+print(b.issuperset(a))
+
+14. DISJOINT SETS -> No common values
+a = {1,2}
+b = {3,4}
+print(a.isdisjoint(b)) # True
+
+COMMON ERRORS on sets telsukondi:
+ERROR 1 -> Trying indexing
+skills[0] # Sets do NOT support indexing
+ERROR 2 -> Using {} for empty set-Wrong
+s = {} # Creates dictionary
+s = set() # ilaa correct
+
+student_skills = set(input("Enter your skills: ").split())
+job_skills = {"Python", "SQL", "Git"}
+
+matched = student_skills & job_skills
+missing = job_skills - student_skills
+
+print("\nMatched Skills:", matched)
+print("Missing Skills:", missing)
+
+# 𝙎𝙩𝙧𝙞𝙣𝙜 𝙊𝙥𝙚𝙧𝙖𝙩𝙞𝙤𝙣𝙨 - Real Text Processing for Real Software
+Because modern software constantly processes text:     - usernames                                                        
+                                                        - passwords
+                                                        - emails
+                                                        - AI prompts
+                                                        - search queries
+                                                        - chatbot messages
+                                                        - resumes
+                                                        - API responses
+
+P  y  t  h  o  n  # Python treats strings like sequences
+0  1  2  3  4  5 
+
+𝗜𝗠𝗣𝗢𝗥𝗧𝗔𝗡𝗧 𝗦𝗧𝗥𝗜𝗡𝗚 𝗢𝗣𝗘𝗥𝗔𝗧𝗜𝗢𝗡𝗦
+1. ACCESSING CHARACTERS (INDEXING)
+text = "Python"
+print(text[0])
+# NEGATIVE INDEXING
+print(text[-1])
+
+2. STRING SLICING - Extract part of string interns
+text = "Python"
+print(text[0:3])
+
+# Start to End
+print(text[2:])
+# Reverse String
+print(text[::-1])
+
+L = "Algonex IT Solutions"
+print(L[:])       # Full string
+print(L[::])     # Full string
+print(L[::-1])    # Reverse string
+print(L[::2])     # Every second character
+print(L[1::2])    # Alternate characters
+print(L[:5])      # First 5 characters
+print(L[5:])      # From index 5 to end
+print(L[-5:])     # Last 5 characters
+print(L[:-5])     # Remove last 5 characters
+print(L[-1])      # Last character
+print(L[0])       # First character
+
+3. STRING LENGTH -> len()
+name = "Rahul"
+print(len(name))
+
+4. UPPERCASE & LOWERCASE
+text = "python"
+print(text.upper())
+print(text.lower())
+
+# TITLE CASE
+print(text.title())
+
+5. REMOVE SPACES -> strip()
+name = "  Rahul  "
+print(name.strip())
+lstrip() -> Left spaces only
+rstrip() -> Right spaces only
+
+6. REPLACE TEXT
+text = "I love mjr"
+print(text.replace("mjr", "Algonex"))
+
+7. SPLIT STRING -> Converts string into list
+skills = "Python SQL AI"
+print(skills.split()) # ['Python', 'SQL', 'AI']
+
+L = '          algonex it solutions           '
+print(L)
+# 8. strip() - Removes spaces from both ends
+print(L.strip()) # printing temparorly
+print(L.lstrip()) # remove left side spaces
+print(L.rstrip()) # remove right side spaces
+L = L.strip() # Assign to L for Permanent space removal
+
+# 9. replace - Replace with another value
+print(L.replace("solutions", "Technologies")) # algonex it Technologies           
+
+# 10. split() - Words with spaces in string splitted to list elements with ,
+print(L.split()) # ['algonex', 'it', 'solutions']
+
+# # 9. replace - Replace with another value
+# print(L.replace("solutions", "Technologies")) # algonex it Technologies           
+
+# 10. split() - Words with spaces in string splitted to list elements with ,
+print(L.split()) # ['algonex', 'it', 'solutions']
+
+# SPLIT USING CUSTOM SEPARATOR
+data = "Python,SQL,AI"
+print(data.split(","))
+
+8. JOIN LIST INTO STRING
+skills = ["Python", "SQL", "AI"]
+print(", ".join(skills)) # Python, SQL, AI
+
+L = 'algonex it solutions'
+# join() - It will join every char with that symbol(#, $, @...)
+print('#'.join(L)) # a#l#g#o#n#e#x# #i#t# #s#o#l#u#t#i#o#n#s
+
+# Better Usecase of .join()
+L = 'algonex it solutions'
+print(L.split())
+print(L) # algonex it solutions
+L = L.split()
+print(L) # ['algonex', 'it', 'solutions']
+print("$".join(L))
+
+9. FIND TEXT
+text = "Python AI"
+print(text.find("AI")) # 7 - Returns index position
+
+10. CHECK START/END
+# startswith()
+email = "admin@gmail.com"
+print(email.startswith("admin"))
+# endswith()
+print(email.endswith(".com"))
+
+11. CHECK CONTENT
+# in Operator
+text = "Python AI"
+print("AI" in text)
+# not in
+print("Java" not in text)
+
+12. COUNT OCCURRENCES
+text = "Python Python AI"
+print(text.count("Python"))
+
+13. STRING CONCATENATION
+first = "Rahul"
+last = "Kumar"
+
+print(first + " " + last)
+# BETTER WAY -> f-STRINGS
+print(f"{first} {last}")
+
+14. STRING REPETITION
+print("=" * 20) # Useful in CLI systems
+# 15. String concatenation and multiplication
+L = 'algonex it solutions'
+M = "By Ganesh Pasala"
+
+print(L+M) # algonex it solutionsBy Ganesh Pasala
+print(L+'   '+M)
+print(L+' # '+M)
+print(("My Love"+" " +"Sorry ")*10)
+
+
+15. CHECK STRING TYPE
+# isalpha() - True/False check for alphabet characters
+print("Python".isalpha())
+# isdigit() - True/False check for numbers
+print("123".isdigit())
+# isalnum() - True/False check for alphabets & numbers
+print("Python123".isalnum())
+
+16. STRING COMPARISON
+print("Python" == "python") # False
+
+ Method       Purpose       
+ split() | string -> list 
+ join()  | list -> string 
+
+# Email Validator
+First_name = str(input("First Name"))
+Last_Name = str(input("Last Name"))
+email = input("Enter email: ")
+
+if email.endswith(".com") and "@" in email:
+    print("Valid Email")
+else:
+    print("Invalid Email")
+
+skills = input("Enter skills: ")
+skills_list = skills.split()
+for skill in skills_list:
+    print(skill.upper())
+
+print(f"\nTotal Skills: {len(skills_list)}")
