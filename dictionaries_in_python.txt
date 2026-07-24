@@ -1,0 +1,275 @@
+# Ｄｉｃｔｉｏｎａｒｙ Ｏｐｅｒａｔｉｏｎｓ(The Most Important Data Structure for Freshers, Developers, Data Analysts, AI Engineers, and Backend Developers)
+A Dictionary is a collection of data whcih is stored as key-value pairs
+
+Scenario: How does Instagram store a user?
+Name : Rakshitha
+Username : Rakshitha_Dadlittle_Princess
+Followers : 5000000
+Location : Bangalore
+
+Will Instagram store like this?:
+name = "Rahul"
+username = "rahul123"
+followers = 500
+location = "Bangalore" -> But For millions of users untee?
+
+# Store related information together with Dictionaries                                         
+Example: 
+student = {                                                                       Key         Value
+    "name": "Rahul",                                                                name    →    Rahul
+   "username": "rahul123",                                                          cgpa    →    8.5
+   "followers": 500,                                                                 role    →    AI Engineer
+ "posts":['url1.img', 'url2.jpg','url3.mp4'],  
+"location": "Bangalore"
+  }   -> This is exactly why dictionaries exist
+
+Because dictionaries are everywhere:  APIs                                  
+                                      databases
+                                      AI responses
+                                      backend systems
+                                      configurations
+𝗔 𝗱𝗶𝗰𝘁𝗶𝗼𝗻𝗮𝗿𝘆 𝘀𝘁𝗼𝗿𝗲𝘀 𝗱𝗮𝘁𝗮 𝗶𝗻: 𝗸𝗲𝘆 -> 𝘃𝗮𝗹𝘂𝗲 𝗳𝗼𝗿𝗺𝗮𝘁
+# 𝗕𝗔𝗦𝗜𝗖 𝗦𝗬𝗡𝗧𝗔𝗫
+
+student['age']= 20
+student.update({'agedf':20})
+
+  𝗙𝗲𝗮𝘁𝘂𝗿𝗲                𝗠𝗲𝗮𝗻𝗶𝗻𝗴 enti
+ 𝐾𝑒𝑦-𝑣𝑎𝑙𝑢𝑒 𝑠𝑡𝑟𝑢𝑐𝑡𝑢𝑟𝑒 | 𝑜𝑟𝑔𝑎𝑛𝑖𝑧𝑒𝑑 𝑚𝑎𝑝𝑝𝑖𝑛𝑔{key:value}
+ 𝑀𝑢𝑡𝑎𝑏𝑙𝑒            | 𝑐𝑎𝑛 𝑚𝑜𝑑𝑖𝑓𝑦 
+ 𝐾𝑒𝑦𝑠 𝑢𝑛𝑖𝑞𝑢𝑒        | 𝑑𝑢𝑝𝑙𝑖𝑐𝑎𝑡𝑒𝑠 keys 𝑛𝑜𝑡 𝑎𝑙𝑙𝑜𝑤𝑒𝑑 
+  Values           |  Can be duplicate and include any dtype
+ 𝐹𝑎𝑠𝑡 𝑙𝑜𝑜𝑘𝑢𝑝 with JSON| 𝑒𝑓𝑓𝑖𝑐𝑖𝑒𝑛𝑡 for 𝑠𝑒𝑎𝑟𝑐ℎ𝑖𝑛𝑔 
+
+WHY DICTIONARIES MATTER Interns?? endukantee real software stores structured data
+# List:
+student = ["Indumathi", 8.5,"AI Engineer"]
+Ikkada Question:
+What is 8.5?
+CGPA?
+Salary?
+Marks?
+Age? -> No clarity kadaa 
+# But with Dictionary:
+student = {
+    "cgpa": 8.5
+} -> Immediately understandable right
+
+# Example: JSON
+{
+  "username": "sowmya123",
+  "email": "sowmya@gmail.com"
+} # This is dictionary-style thinking
+
+CRUD Operations
+# Every software system performs:
+- Create
+- Read
+- Update
+- Delete
+
+# CREATE
+student = {}
+student["name"] = "Heena Patel"
+# READ
+print(student["name"]) # "Heena Patel"
+# UPDATE
+student["name"] = "Anu"
+# DELETE
+del student["name"]
+
+1. Task CREATING DICTIONARY with name, Batch, role, , sem_marks(from 1st year), viisted_location, hobbies
+student = {
+    "name": "Indumathi",
+    "cgpa": 8.5
+}
+2. ACCESS VALUES
+# Using Key
+print(student["name"]) # Rahul
+# SAFE METHOD for million users-> get()
+print(student.get("name")) #None
+
+3. ADD NEW KEY-VALUE pair to existing dict
+student["fav_movie"] = ["kantara",'kanchana','3']
+4. MODIFY VALUE
+student["Batch"] = 2020
+
+5. REMOVE ELEMENTS(pop(), del, clear())
+# pop()
+student.pop("Batch")
+# del
+del student["location"]
+# clear()
+student.clear() # Removes everything
+
+6. GET ALL KEYS
+print(student.keys())
+7. GET ALL VALUES
+print(student.values())
+8. GET KEY-VALUE PAIRS
+print(student.items())
+
+9. DICTIONARY through Loops
+# Loop Keys
+for i in student:
+    print(i) # All keys only
+
+# Loop Values
+for value in student.values():
+    print(value) # All values
+# Loop Key-Value Pairs
+for key, value in student.items():
+    print(key, value)
+
+10. CHECK KEY EXISTENCE
+print("name" in student) # True
+11. FIND LENGTH
+print(len(student))
+print(len(student['key']))
+
+12. COPY DICTIONARY(Duplicate)
+new_student = student.copy()
+13. UPDATE DICTIONARY
+student.update({
+    "role": "Backend Developer"
+})
+student['role'] = 'Backend Developer'
+
+14. NESTED DICTIONARIES (Dictionary inside another dictionary)
+Example: 
+Algonex = {
+    "s1": {
+        "name": "Venu",
+        "cgpa": 8.5
+    },
+    "s2": {
+        "name": "Anu",
+        "cgpa": 9.1
+    }
+}
+# ACCESS NESTED VALUES
+print(students["s1"]["name"]) # Venu
+
+15. DICTIONARY WITH LISTS
+student = {
+    "name": "Rahul",
+    "skills": ["Python", "SQL", "AI"]
+}
+# ACCESS LIST INSIDE DICTIONARY
+print(student["skills"][0])
+16. LIST OF DICTIONARIES
+students = [
+    {
+        "name": "Jaswanth",
+        "cgpa": 8.5
+    },
+
+    {
+        "name": "Anu",
+        "cgpa": 9.0
+    }
+]
+# LOOP THROUGH LIST OF DICTIONARIES
+for stu in students:
+    print(stu["name"])
+
+17. DICTIONARY COMPREHENSION
+numbers = [1,2,3]
+squares = {x: x*x for x in numbers}
+print(squares)
+
+18. MERGING DICTIONARIES
+a = {"x":1}
+b = {"y":2}
+result = a | b
+print(result) # {'x':1,'y':2}
+#Interviewer Que: Two dictionaries with same keys but diff values, so what will be answer if you write dict1 | dict2
+student1 = {"name":"Aishwarya",
+            'age':25,
+            'location':"Marathahalli"}
+student2 = {"name":"Vamsi Priya",
+            'age':22,
+            'location':"Nellore"}
+# print(student1+student2)
+# print(student1 & student2)
+print(student1 | student2)
+
+#Interviewer Que: Two dictionaries with diff keys and diff values, so what will be answer if you write dict1 | dict2
+student1 = {"name":"Aishwarya",
+            'vayasu':25,
+            'city':"Marathahalli"}
+student2 = {"name":"Vamsi Priya",
+            'age':22,
+            'location':"Nellore"}
+
+print(student1 | student2)
+
+19. DEFAULT VALUE -> setdefault()
+student.setdefault("city", "Unknown")
+20. REMOVE LAST INSERTED -> popitem()
+student.popitem()
+
+# Nested Dictionaries
+students = {
+
+    "S101": {
+        "name":"Jayakrishna",
+        "cgpa":9.5
+    },
+
+    "S102": {
+        "name":"William",
+        "cgpa":9.1
+    }
+}
+# Access Nested Data
+print(students["S101"]["name"])
+
+Method       Purpose              
+ get()    | Safe access          
+ keys()   | Get all keys         
+ values() | Get all values       
+ items()  | Get key-value pairs  
+ update() | Modify data          
+ pop()    | Remove key           
+ clear()  | Empty dictionary     
+ copy()   | Duplicate dictionary 
+
+I = {'name': 'Rakshitha',
+     'roll':"23jhsufg3uyt3u",
+      'Branch name': 'CSE',
+      'Cgpa': 8
+          }
+print(I)
+print(I.keys())
+print(I.values())
+print(I.items())
+print(len(I)) # 4
+# INDEXING
+print(I['roll'])
+print(I.get('Cgpa'))
+# Updating
+I['roll'] = "23KB1A05G5"
+I.update({"name": "Dilli Prasad"})
+
+# Delete
+del I['name']
+print(I.pop('Cgpa'))
+print(I.popitem())
+print(I.clear())
+print(I)
+
+Dictionary is the foundation of almost every modern application folks..
+-> When a company sends data,
+-> when an API returns data,
+-> when an AI model generates structured output
+
+# Mini PROJECT-3: CareerOS Student Database
+student = {}
+
+student["name"] = input("Enter name: ")
+student["role"] = input("Enter role: ")
+student["cgpa"] = float(input("Enter CGPA: "))
+
+for key, value in student.items():
+    print(f"{key} : {value}")
