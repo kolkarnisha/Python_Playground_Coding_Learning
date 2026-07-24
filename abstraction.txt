@@ -1,0 +1,417 @@
+Abstraction in Python OOPs(The Pillar That Hides Complexity)
+Perfect folks till now You've now understood:
+Encapsulation -> Protect Data
+Inheritance -> Reuse Code
+Polymorphism -> One Interface, Multiple Behaviors
+
+Abstraction means hiding implementation details -> But Why do we want to hide implementation details?
+Example Scenario:
+When you drive a bike, Do you know how:
+- Fuel Injection Works?
+- Piston Moves?
+- Combustion Happens?
+- Engine Timing Works?..
+
+Because the bike gives you only:
+- Accelerator
+- Brake
+- Clutch
+- Gear and rest hides everything else -> this is abstraction
+
+                      Abstraction says:
+   Show only what the user needs -> Hide unnecessary complexity
+
+Real Life Example 1: ATM working abstraction chudhamaa
+You see:
+-Withdraw Money
+-Deposit Money
+-Check Balance
+
+You don't see:
+-Database Queries
+-Server Calls
+-Encryption
+-Transaction Tables -> All hidden
+
+As a user:
+I don't want complexity/implementation details -> I just want functionality -> That's exactly why abstraction exists
+
+Encapsulation asks: How do I protect data?
+Inheritance asks: How do I reuse code?
+Polymorphism asks: How do I support multiple behaviors?
+Abstraction asks: How do I hide complexity from users?
+
+When you press: Withdraw ₹1000
+the ATM performs thousands of operations internally - You don't care -> That's abstraction
+
+Real Life Example 2: ChatGPT (You type: Explain Python as prompt -> You get an answer)
+You don't see:
+-Neural Networks
+-Transformers
+-Tokenization
+-Vector Math
+-Attention Mechanisms -> Everything hidden -> Abstraction
+
+### Abstraction is the process of exposing only essential functionality while hiding implementation complexity
+-> Abstraction is the process of hiding implementation complexity and exposing only the essential functionality required by the user
+-> Abstraction means hiding the internal implementation details and showing only the necessary features to the user
+                          Abstraction -> Define WHAT should happen, not HOW it should happen
+                                      -> The user knows WHAT to do but doesn't need to know HOW it works
+
+### Python implements abstraction using: from abc import ABC, abstractmethod
+Where: ABC = Abstract Base Class
+@abstractmethod = Method that child classes must implement
+
+Why Was Abstraction Invented?: Imagine Jayakrishna using a mobile phone
+Without abstraction meeru:
+-Call Tower Logic
+-Signal Routing
+-Network Protocols
+-Battery Algorithms
+You would need a telecom engineering degree just to make a call -> Impossible
+
+Step 1: Without Abstraction -> Imagine a payment system
+class UPI:
+    def pay(self):
+        print("UPI Payment")
+class Card:
+    def pay(self):
+        print("Card Payment")
+# But there is no guarantee that every future payment class will have a pay() method
+
+Parent says:
+Every Payment -> must have pay()
+Parent does NOT say: How to pay
+Children decide: How to pay
+
+UPI: UPI Logic
+Card: Card Logic
+Wallet: Wallet Logic -> This is abstraction
+
+Real-Life Example: ATM Machine
+You insert card
+  |
+Enter PIN
+  |
+Withdraw Money
+
+You don't know: Database queries, Fraud detection, Server communication, Balance verification, Cash dispensing mechanism -> Everything is hidden -> Abstraction
+You only use
+- Withdraw Cash
+- Check Balance
+- Deposit Money -> This is abstraction
+                                                Customer
+                                                    │
+                                             | Pay Now Button |
+                                                   |
+                                            Hidden Internal Process
+                                              Encrypt Card
+                                                   |
+                                              Validate Card
+                                                   |
+                                              Contact Bank
+                                                    |
+                                              OTP Verification
+                                                    |
+                                              Fraud Detection
+                                                    |
+                                              Transfer Money
+                                                    |
+                                              Generate Receipt
+Real-Life Example 2: Mobile Phone
+You click Camera -> Photo is taken
+You don't know: Lens movemen, Sensor activation, AI image processing, Color correction -> Everything happens internally
+
+Step 2: Why do we need Abstraction?
+Without abstraction Imagine driving a car like this:
+Step 1: Inject fuel
+Step 2: Rotate crankshaft
+Step 3: Adjust air intake
+Step 4: Fire spark plug
+Step 5: Move piston -> Impossible!
+Instead -> Press Accelerator -> Done
+
+Abstraction makes software
+-> Easy to use
+-> Easy to maintain
+-> Secure
+-> Less complex
+-> Reusable
+
+Step 3: Abstraction in Programming
+Suppose you're using a calculator -> You write: print(10 + 20)
+You never think about
+- CPU instructions
+- Memory allocation
+- Binary calculations kadaaa
+Python hides everything -> This is abstraction
+
+Step 4: Example without Abstraction (Suppose we create a TV)
+class TV:
+    def power_supply(self):
+        print("Power On")                                      # Output
+    def motherboard(self):                                      Power On
+        print("Motherboard Started")                            Motherboard Started
+    def display(self):                                          Display Activated
+        print("Display Activated")
+
+t = TV()
+t.power_supply()
+t.motherboard()
+t.display()
+
+Problem: The user should never call all these methods
+Instead, the user only wants -> Turn ON TV
+
+Step 5: With Abstraction
+class TV:
+    def turn_on(self):
+        self.__power_supply()
+        self.__motherboard()
+        self.__display()
+
+    def __power_supply(self):
+        print("Power On")
+    def __motherboard(self):
+        print("Motherboard Started")
+    def __display(self):
+        print("Display Activated")
+
+tv = TV()
+tv.turn_on()
+
+# Output
+Power On
+Motherboard Started
+Display Activated -> Now the user only calls
+
+tv.turn_on() -> Implementation is hidden anthee kadaa
+
+
+Step 6: How Python Supports Abstraction
+Python provides abstraction using
+- Abstract Classes
+- Abstract Methods -> These are available in the abc module
+abc -> Abstract Base Class
+
+Step 7: Import abc Module
+from abc import ABC, abstractmethod # ABC -> Abstract Base Class
+
+Step 8: Creating an Abstract Class
+from abc import ABC
+class Vehicle(ABC):
+    pass
+
+Step 9: Creating an Abstract Method
+from abc import ABC, abstractmethod
+class Vehicle(ABC):
+    @abstractmethod    #Ikkada @abstractmethod menas Every child class must implement the start() method
+    def start(self):
+        pass
+
+Step 10: Child Class
+from abc import ABC, abstractmethod
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+class Car(Vehicle):
+    def start(self):
+        print("Car Started")
+
+car = Car()
+car.start()
+
+
+Step 11: What if Child Doesn't Implement?
+from abc import ABC, abstractmethod
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+class Bike(Vehicle):
+    pass
+bike = Bike()
+
+#Output
+TypeError:
+Can't instantiate abstract class Bike
+with abstract method start -> Python forces the developer to implement the abstract method
+
+Step 12: Okayyy Another Real-World Example - Payment Gateway
+Suppose meeru building an e-commerce application
+Users can pay through - Credit Card, UPI, PayPal, Net Banking
+-> Every payment method has a different implementation, but all must support a pay() method
+
+from abc import ABC, abstractmethod
+class Payment(ABC):
+
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+class CreditCard(Payment):
+    def pay(self, amount):
+        print(f"Paid ₹{amount} using Credit Card")
+
+class UPI(Payment):
+    def pay(self, amount):
+        print(f"Paid ₹{amount} using UPI")
+
+class PayPal(Payment):
+    def pay(self, amount):
+        print(f"Paid ₹{amount} using PayPal")
+
+payments = [
+    CreditCard(),
+    UPI(),
+    PayPal()]
+for payment in payments:
+    payment.pay(500)
+
+### Ikkada Why use abstraction here?
+The checkout system only needs to call: payment.pay(amount)
+-> It doesn't care whether the payment happens via UPI, Credit Card, or PayPal. Each class hides its own implementation details
+
+Step 17: Advantages of Abstraction
+-> Reduces code complexity
+-> Hides unnecessary implementation details
+-> Makes code easier to maintain
+-> Improves security by exposing only required functionality
+-> Enforces a common interface across related classes
+-> Makes large applications easier to extend and test
+-> Encourages cleaner, modular design
+
+Abstraction -> Define the rules        Payment
+Child Classes -> Implement the rules     │
+                                  pay() [Abstract]
+                                          │
+                                ┌─────────┴─────────┐
+                                │                   │
+                               UPI                Card
+                                │                   │
+                            pay()               pay()
+
+###Suppose you're building an Employee Management System at Algonex
+Mana HR person clicks: Add Employee
+Internally, the system:
+- Validates data
+- Checks duplicates
+- Generates Employee ID
+- Encrypts password
+- Saves to database
+- Sends welcome email
+- Creates payroll account
+- Logs activity  ==>The HR doesn't know these steps
+#They only know: Employee Added Successfully -> This is Abstraction
+
+####Python Example Without Abstraction
+class Payment:
+    def pay(self):
+        print("Encrypting Card...")                       #Output
+        print("Connecting to Bank...")                     Encrypting Card...
+        print("Checking Fraud...")                         Connecting to Bank...
+        print("Processing Payment...")                     Checking Fraud...
+        print("Payment Successful")                        Processing Payment...
+payment = Payment()                                        Payment Successful
+payment.pay()        -> The user sees everything, including internal operations
+
+####Python Abstraction Using Abstract Classes
+Python provides the abc module (ABC = Abstract Base Class)
+-> An abstract class defines what methods must exist, but not how they work
+from abc import ABC, abstractmethod
+class Payment(ABC):
+    @abstractmethod
+    def pay(self):
+        pass
+This class says:Every payment type must implement pay()
+
+#Credit Card Implementation
+class CreditCard(Payment):
+    def pay(self):
+        print("Processing Credit Card Payment")
+
+#UPI Implementation
+class UPI(Payment):
+    def pay(self):
+        print("Processing UPI Payment")
+
+#Net Banking Implementation
+class NetBanking(Payment):
+    def pay(self):
+        print("Processing Net Banking Payment")
+payment1 = CreditCard()
+payment2 = UPI()
+payment3 = NetBanking()
+
+payment1.pay() #Processing Credit Card Payment
+payment2.pay() #Processing UPI Payment
+payment3.pay() #Processing Net Banking Payment
+### Notice ikkada main program only calls pay() -> It doesn't need to know the implementation details for each payment method
+
+
+
+   Encapsulation                                                        Abstraction         
+Protect Data/ Hides data by controlling access                                                   | Hide Complexity/ Hides implementation details     
+Focus on Security & Integrity/ ocuses on how an object's data is protected                          | Focus on Simplicity/Focuses on what an object can do
+Controls Access/Implemented using access conventions (public, protected, private) and getters/setters | Controls Visibility/Implemented using abstract classes and methods 
+Example: payment.pay(amount)       |Example: keeping balance private in a BankAccount class
+
+-> Abstraction in Python is implemented using abstract classes and abstract methods to define a common contract that child classes must follow while hiding implementation details
+=> Abstraction is the OOP principle of exposing only the essential functionalities of an object while hiding its internal implementation details
+-> In Python, abstraction is commonly implemented using abstract base classes (ABC) and the @abstractmethod decorator
+
+###Why Companies Use Abstraction
+Large organizations such as banking systems, e-commerce platforms, and SaaS products use abstraction because it:
+-> Hides complex implementation details
+-> Makes code easier to maintain
+-> Allows developers to add new features without changing existing code
+-> Promotes consistency by enforcing required methods
+-> Improves code readability and teamwork
+For example, adding a new payment method like Apple Pay only requires creating a new class that implements pay() ->Existing code remains unchanged
+
+Step 19: Interview Questions chudhama finalga
+1. What is abstraction?
+Abstraction is the process of hiding implementation details and exposing only essential functionality to the user
+2. Which module provides abstraction in Python?
+The built-in abc module
+3. Can we create an object of an abstract class?
+No kadaa Attempting to instantiate an abstract class raises a TypeError
+4. Which decorator is used for abstract methods?
+@abstractmethod
+5. Can an abstract class contain normal methods?
+Yes. An abstract class can have both abstract methods and fully implemented (concrete) methods
+6. Can a child class inherit from an abstract class without implementing all abstract methods?
+Yes, but then that child class also remains abstract and cannot be instantiated until all abstract methods are implemented
+
+######Notification System: Suppose a company wants to send notifications
+Different notification channels:
+- Email
+- SMS
+- WhatsApp
+- Push Notification
+# All have the same action: send()
+
+#Abstract class:
+from abc import ABC, abstractmethod
+class Notification(ABC):
+    @abstractmethod
+    def send(self):
+        pass
+
+##Implementations:
+class Email(Notification):
+    def send(self):
+        print("Sending Email")
+
+class SMS(Notification):
+    def send(self):
+        print("Sending SMS")
+
+class WhatsApp(Notification):
+    def send(self):
+        print("Sending WhatsApp Message")
+
+notifications = [Email(), SMS(),WhatsApp()]
+for notification in notifications:
+    notification.send() -> It doesn't need to know the implementation for each notification type
