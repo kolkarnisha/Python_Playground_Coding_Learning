@@ -61,3 +61,12 @@ class PayPal(Payment):
 payments = [CreditCard(),UPI(),PayPal()]
 for payment in payments:
     payment.pay(500)
+
+"""Advantages of Abstraction
+-> Reduces code complexity
+-> Hides unnecessary implementation details
+-> Makes code easier to maintain
+-> Improves security by exposing only required functionality
+-> Enforces a common interface across related classes
+-> Makes large applications easier to extend and test
+-> Encourages cleaner, modular design"""
