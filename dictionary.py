@@ -71,4 +71,34 @@ a={}
 for i in range(0,10,2):
     a[i]=i*i
 print(a)
+# frequency finding
+list=[ 1, 1, 2, 2, 3, 4, 3, 4, 5, 5, 6, 7, 6,6 ,6 , 8, 8]
+print(list)
+list2={}
+for i in list:
+    if i in list2:
+        list2[i]+=1
+        
+    else:
+        list2[i]=1
+print(list2)
+        
+string="nishazareentaj"
+print(string)
+frequency={}
+for i in string:
+    if i in frequency:
+        frequency[i]+=1
+    else:
+        frequency[i]=1
+print(frequency)
 
+words="algonex it solutions algonex it solutions algonex it solutions ".split()
+print(words)
+h={}
+for i in words:
+    if i in h:
+        h[i]+=1
+    else:
+        h[i]=1
+print(h)
