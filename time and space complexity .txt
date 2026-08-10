@@ -12,3 +12,65 @@
  arr + arr2       |           O(n + m) 
  x in set        |       O(1) average 
  key in dict`     |       O(1) average
+
+## For every DS problems follow this path while solving::
+
+*Problem*
+    |
+Input Constraints
+   |
+Required Complexity
+   |
+Possible Data Structures
+     |
+Algorithm Pattern
+     |
+Implementation(Logic)
+     |
+Verify Complexity(Time/Space)
+
+*####But This One Is Different*
+i = 1
+while i < n:
+    for j in range(n):
+        print(i, j)
+    i *= 2
+
+*##Another Important Pattern*
+i = 0
+while i < n:
+    for j in range(n):
+        print(i, j)
+    i += 1
+
+*Time Complexicity*: O(n)*O(n) =O(n2)
+
+for i in range(n):
+    j = 1
+while j < n:
+     j *= 2
+*What is the complexity?*    -> O(n) +O(logn)
+
+for i in range(n):
+    j = 1
+    while j < n:
+        j *= 2
+*What is the complexity?*
+
+
+def second_largest(lst):
+    first = second = float('-inf') # -infinity
+
+    for num in lst:
+        if num > first:
+            second = first
+            first = num
+        elif num > second and num!= first:
+            second = num
+
+    if second == float('-inf'):
+        return "No second largest element"
+    return second
+
+L = list(map(int, input("Enter list input: ").split()))
+print("Second Largest:", second_largest(L))
