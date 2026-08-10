@@ -110,3 +110,18 @@ d={}
 for i in list:
     d[i]=d.get(i,0)+1
 print(d)
+list=[ 1, 1, 2, 2, 3, 4, 3, 4, 5, 5, 6, 7, 6,6 ,6 , 8, 8]
+# for i in list:
+#     print(i,list.count(i))
+for i in list:
+    if i in d:
+        d[i]=d[i]+1
+    else:
+        d[i]=1
+print(d)
+list=[ 1, 1, 2, 2, 3, 4, 3, 4, 5, 5, 6, 7, 6,6 ,6 , 8, 8, 10, 11, 12,13]
+unique=[]
+for i in list:
+    if i  not in list:
+        unique.append(list)
+print(i)
