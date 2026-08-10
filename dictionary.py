@@ -102,3 +102,11 @@ for i in words:
     else:
         h[i]=1
 print(h)
+# another logic
+list=[ 1, 1, 2, 2, 3, 4, 3, 4, 5, 5, 6, 7, 6,6 ,6 , 8, 8]
+# for i in list:
+#     print(i,list.count(i))
+d={}
+for i in list:
+    d[i]=d.get(i,0)+1
+print(d)
