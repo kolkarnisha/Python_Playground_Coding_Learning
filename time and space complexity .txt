@@ -1,0 +1,14 @@
+*Operation          | Typical Complexity* 
+
+ arr[i]          |               O(1) 
+ arr.append(x)    |     O(1) amortized 
+ arr.pop()        |               O(1) 
+ arr.insert(0, x) |               O(n) 
+ arr.pop(0)       |               O(n) 
+ x in arr         |               O(n) 
+ arr.sort()       |         O(n log n) 
+ arr.reverse()    |               O(n) 
+ arr[:]           |               O(n) 
+ arr + arr2       |           O(n + m) 
+ x in set        |       O(1) average 
+ key in dict`     |       O(1) average
