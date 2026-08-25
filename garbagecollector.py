@@ -12,6 +12,12 @@ print("working with object")
 del emp
 print("programming finished")
 
+'''garbagecollecter enabled: True
+nishaobject created
+working with object
+nishaobject destroyed
+programming finished'''
+
 
 d={}
 student={"name":"nisha","age":22}
