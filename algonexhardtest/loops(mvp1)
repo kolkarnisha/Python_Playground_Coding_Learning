@@ -1,0 +1,2845 @@
+# 🐍 PYTHON LOOPS – COMPLETE REVISION NOTEBOOK
+
+## For Training Test / Mentor Test
+
+==================================================
+
+# 1. WHAT IS A LOOP?
+
+==================================================
+
+A loop is used to execute a block of code repeatedly until a particular condition is satisfied or until all elements of a sequence are processed.
+
+Instead of writing:
+
+print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+
+We can use:
+
+for i in range(1, 6):
+print(i)
+
+Output:
+1
+2
+3
+4
+5
+
+Main types of loops in Python:
+
+1. for loop
+2. while loop
+
+Loop control statements:
+
+1. break
+2. continue
+3. pass
+
+==================================================
+
+# 2. WHY DO WE USE LOOPS?
+
+==================================================
+
+Loops are used when we need to perform the same operation multiple times.
+
+Examples:
+
+* Print numbers from 1 to 100
+* Find the sum of numbers
+* Print elements of a list
+* Search for an element
+* Count vowels
+* Find maximum/minimum
+* Reverse a number
+* Check palindrome
+* Generate multiplication tables
+* Traverse strings, lists, tuples, dictionaries and sets
+* Perform calculations repeatedly
+
+==================================================
+
+# 3. FOR LOOP
+
+==================================================
+
+A for loop is used to iterate over a sequence or iterable.
+
+Syntax:
+
+for variable in iterable:
+statements
+
+Example:
+
+for i in range(5):
+print(i)
+
+Output:
+
+0
+1
+2
+3
+4
+
+IMPORTANT:
+
+range(5) starts from 0 and stops before 5.
+
+==================================================
+
+# 4. RANGE() FUNCTION
+
+==================================================
+
+range() is very important for for loops.
+
+There are 3 common forms.
+
+---
+
+1. range(stop)
+
+---
+
+range(5)
+
+Values:
+
+0 1 2 3 4
+
+Example:
+
+for i in range(5):
+print(i)
+
+---
+
+2. range(start, stop)
+
+---
+
+range(2, 6)
+
+Values:
+
+2 3 4 5
+
+Example:
+
+for i in range(2, 6):
+print(i)
+
+---
+
+3. range(start, stop, step)
+
+---
+
+range(1, 10, 2)
+
+Values:
+
+1 3 5 7 9
+
+Example:
+
+for i in range(1, 10, 2):
+print(i)
+
+IMPORTANT:
+
+The stop value is NOT included.
+
+==================================================
+
+# 5. REVERSE RANGE
+
+==================================================
+
+We can use a negative step.
+
+Example:
+
+for i in range(10, 0, -1):
+print(i)
+
+Output:
+
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+Another example:
+
+for i in range(10, 0, -2):
+print(i)
+
+Output:
+
+10
+8
+6
+4
+2
+
+==================================================
+
+# 6. WHILE LOOP
+
+==================================================
+
+A while loop repeatedly executes statements as long as the condition is True.
+
+Syntax:
+
+while condition:
+statements
+
+Example:
+
+i = 1
+
+while i <= 5:
+print(i)
+i += 1
+
+Output:
+
+1
+2
+3
+4
+5
+
+IMPORTANT:
+
+In a while loop, we usually need to update the variable.
+
+Otherwise, an infinite loop may occur.
+
+Example of infinite loop:
+
+i = 1
+
+while i <= 5:
+print(i)
+
+Here i never changes.
+
+Therefore condition always remains True.
+
+==================================================
+
+# 7. FOR LOOP VS WHILE LOOP
+
+==================================================
+
+FOR LOOP:
+
+Used when we know how many times we want to iterate or when traversing an iterable.
+
+Example:
+
+for i in range(1, 6):
+print(i)
+
+WHILE LOOP:
+
+Used when repetition depends mainly on a condition.
+
+Example:
+
+i = 1
+
+while i <= 5:
+print(i)
+i += 1
+
+Simple difference:
+
+FOR = iterate over sequence/range
+
+WHILE = repeat while condition is True
+
+==================================================
+
+# 8. LOOP CONTROL STATEMENTS
+
+==================================================
+
+Python provides:
+
+1. break
+2. continue
+3. pass
+
+==================================================
+
+# 9. BREAK
+
+==================================================
+
+break immediately terminates the loop.
+
+Example:
+
+for i in range(1, 10):
+if i == 5:
+break
+print(i)
+
+Output:
+
+1
+2
+3
+4
+
+When i becomes 5, break terminates the loop.
+
+IMPORTANT:
+
+break exits the nearest loop.
+
+==================================================
+
+# 10. CONTINUE
+
+==================================================
+
+continue skips the current iteration and moves to the next iteration.
+
+Example:
+
+for i in range(1, 6):
+if i == 3:
+continue
+print(i)
+
+Output:
+
+1
+2
+4
+5
+
+When i = 3, print() is skipped.
+
+==================================================
+
+# 11. PASS
+
+==================================================
+
+pass does nothing.
+
+It is used as a placeholder when we want to write a block later.
+
+Example:
+
+for i in range(5):
+pass
+
+The loop executes but does nothing.
+
+IMPORTANT:
+
+pass != break
+
+pass does not stop the loop.
+
+==================================================
+
+# 12. ELSE WITH FOR LOOP
+
+==================================================
+
+Python allows else with loops.
+
+Example:
+
+for i in range(5):
+print(i)
+else:
+print("Loop completed")
+
+Output:
+
+0
+1
+2
+3
+4
+Loop completed
+
+The else block executes when the loop completes normally.
+
+==================================================
+
+# 13. ELSE WITH BREAK
+
+==================================================
+
+Important interview/training-test concept.
+
+Example:
+
+for i in range(1, 6):
+if i == 3:
+break
+else:
+print("Completed")
+
+Here else will NOT execute because the loop was terminated using break.
+
+Rule:
+
+Loop completed normally → else executes
+
+Loop terminated using break → else does not execute
+
+==================================================
+
+# 14. NESTED LOOPS
+
+==================================================
+
+A loop inside another loop is called a nested loop.
+
+Example:
+
+for i in range(1, 4):
+for j in range(1, 4):
+print(i, j)
+
+Output:
+
+1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+3 1
+3 2
+3 3
+
+The inner loop executes completely for every iteration of the outer loop.
+
+==================================================
+
+# 15. LOOPS WITH STRINGS
+
+==================================================
+
+A string is iterable.
+
+Example:
+
+name = "NISHA"
+
+for ch in name:
+print(ch)
+
+Output:
+
+N
+I
+S
+H
+A
+
+Example:
+
+word = "python"
+
+count = 0
+
+for ch in word:
+count += 1
+
+print(count)
+
+Output:
+
+6
+
+==================================================
+
+# 16. LOOPS WITH LISTS
+
+==================================================
+
+Lists are iterable.
+
+Example:
+
+numbers = [10, 20, 30, 40, 50]
+
+for num in numbers:
+print(num)
+
+==================================================
+
+# 17. LOOP THROUGH LIST USING INDEX
+
+==================================================
+
+numbers = [10, 20, 30, 40]
+
+for i in range(len(numbers)):
+print(numbers[i])
+
+Output:
+
+10
+20
+30
+40
+
+IMPORTANT:
+
+len() gives the number of elements.
+
+==================================================
+
+# 18. LOOPS WITH TUPLES
+
+==================================================
+
+t = (10, 20, 30, 40)
+
+for value in t:
+print(value)
+
+==================================================
+
+# 19. LOOPS WITH SETS
+
+==================================================
+
+s = {10, 20, 30, 40}
+
+for value in s:
+print(value)
+
+IMPORTANT:
+
+Sets are unordered, so don't depend on a particular output order.
+
+==================================================
+
+# 20. LOOPS WITH DICTIONARIES
+
+==================================================
+
+Dictionary:
+
+student = {
+"name": "Nisha",
+"age": 22,
+"course": "Python"
+}
+
+---
+
+## Keys
+
+for key in student:
+print(key)
+
+---
+
+## Values
+
+for value in student.values():
+print(value)
+
+---
+
+## Key + Value
+
+for key, value in student.items():
+print(key, value)
+
+==================================================
+
+# 21. IMPORTANT DATA STRUCTURES + LOOPS
+
+==================================================
+
+Python data structures commonly used with loops:
+
+1. String
+2. List
+3. Tuple
+4. Set
+5. Dictionary
+
+Example:
+
+data = [10, 20, 30]
+
+for x in data:
+print(x)
+
+The loop takes each element one by one.
+
+==================================================
+
+# 22. ENUMERATE()
+
+==================================================
+
+enumerate() gives both index and value.
+
+Example:
+
+names = ["A", "B", "C"]
+
+for index, name in enumerate(names):
+print(index, name)
+
+Output:
+
+0 A
+1 B
+2 C
+
+Starting from another index:
+
+for index, name in enumerate(names, start=1):
+print(index, name)
+
+Output:
+
+1 A
+2 B
+3 C
+
+==================================================
+
+# 23. ZIP()
+
+==================================================
+
+zip() is used to iterate over multiple sequences together.
+
+Example:
+
+names = ["A", "B", "C"]
+marks = [80, 90, 70]
+
+for name, mark in zip(names, marks):
+print(name, mark)
+
+Output:
+
+A 80
+B 90
+C 70
+
+==================================================
+
+# 24. ACCUMULATOR CONCEPT
+
+==================================================
+
+An accumulator stores the result while a loop executes.
+
+Example:
+
+total = 0
+
+for i in range(1, 6):
+total += i
+
+print(total)
+
+Output:
+
+15
+
+Here:
+
+total = accumulator
+
+==================================================
+
+# 25. COUNTER CONCEPT
+
+==================================================
+
+A counter is used to count occurrences.
+
+Example:
+
+count = 0
+
+for i in range(1, 11):
+if i % 2 == 0:
+count += 1
+
+print(count)
+
+Output:
+
+5
+
+==================================================
+
+# 26. SUM OF NUMBERS
+
+==================================================
+
+Question:
+
+Find sum of numbers from 1 to 10.
+
+Code:
+
+total = 0
+
+for i in range(1, 11):
+total += i
+
+print(total)
+
+Output:
+
+55
+
+Using while:
+
+i = 1
+total = 0
+
+while i <= 10:
+total += i
+i += 1
+
+print(total)
+
+==================================================
+
+# 27. PRINT EVEN NUMBERS
+
+==================================================
+
+for i in range(1, 21):
+if i % 2 == 0:
+print(i)
+
+Output:
+
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+
+Shorter:
+
+for i in range(2, 21, 2):
+print(i)
+
+==================================================
+
+# 28. PRINT ODD NUMBERS
+
+==================================================
+
+for i in range(1, 21):
+if i % 2 != 0:
+print(i)
+
+==================================================
+
+# 29. CHECK EVEN OR ODD
+
+==================================================
+
+n = int(input("Enter number: "))
+
+if n % 2 == 0:
+print("Even")
+else:
+print("Odd")
+
+NOTE:
+
+This doesn't require a loop, but mentors often combine it with loops.
+
+==================================================
+
+# 30. MULTIPLICATION TABLE
+
+==================================================
+
+n = int(input("Enter number: "))
+
+for i in range(1, 11):
+print(n, "x", i, "=", n * i)
+
+==================================================
+
+# 31. FACTORIAL
+
+==================================================
+
+Factorial of 5:
+
+5! = 5 × 4 × 3 × 2 × 1
+= 120
+
+Code:
+
+n = int(input("Enter number: "))
+
+fact = 1
+
+for i in range(1, n + 1):
+fact *= i
+
+print("Factorial =", fact)
+
+While version:
+
+n = int(input("Enter number: "))
+
+fact = 1
+i = 1
+
+while i <= n:
+fact *= i
+i += 1
+
+print(fact)
+
+==================================================
+
+# 32. REVERSE A NUMBER
+
+==================================================
+
+Example:
+
+12345 → 54321
+
+Code:
+
+n = int(input("Enter number: "))
+
+reverse = 0
+
+while n > 0:
+digit = n % 10
+reverse = reverse * 10 + digit
+n //= 10
+
+print(reverse)
+
+IMPORTANT OPERATORS:
+
+%  → remainder
+
+// → integer division
+
+==================================================
+
+# 33. COUNT DIGITS
+
+==================================================
+
+n = int(input("Enter number: "))
+
+count = 0
+
+while n > 0:
+n //= 10
+count += 1
+
+print("Number of digits:", count)
+
+Example:
+
+Input: 12345
+
+Output:
+
+5
+
+==================================================
+
+# 34. SUM OF DIGITS
+
+==================================================
+
+Example:
+
+1234
+
+1 + 2 + 3 + 4 = 10
+
+Code:
+
+n = int(input("Enter number: "))
+
+total = 0
+
+while n > 0:
+digit = n % 10
+total += digit
+n //= 10
+
+print(total)
+
+==================================================
+
+# 35. PRODUCT OF DIGITS
+
+==================================================
+
+n = int(input("Enter number: "))
+
+product = 1
+
+while n > 0:
+digit = n % 10
+product *= digit
+n //= 10
+
+print(product)
+
+==================================================
+
+# 36. PALINDROME NUMBER
+
+==================================================
+
+A palindrome reads the same forward and backward.
+
+Example:
+
+121 → palindrome
+
+123 → not palindrome
+
+Code:
+
+n = int(input("Enter number: "))
+
+original = n
+reverse = 0
+
+while n > 0:
+digit = n % 10
+reverse = reverse * 10 + digit
+n //= 10
+
+if original == reverse:
+print("Palindrome")
+else:
+print("Not Palindrome")
+
+==================================================
+
+# 37. PRIME NUMBER
+
+==================================================
+
+A prime number has exactly two factors:
+
+1 and itself.
+
+Examples:
+
+2, 3, 5, 7, 11
+
+Code:
+
+n = int(input("Enter number: "))
+
+if n < 2:
+print("Not Prime")
+else:
+is_prime = True
+
+```
+for i in range(2, n):
+    if n % i == 0:
+        is_prime = False
+        break
+
+if is_prime:
+    print("Prime")
+else:
+    print("Not Prime")
+```
+
+==================================================
+
+# 38. OPTIMIZED PRIME CHECK
+
+==================================================
+
+Instead of checking until n-1, we can check up to √n.
+
+Code:
+
+n = int(input("Enter number: "))
+
+if n < 2:
+print("Not Prime")
+else:
+is_prime = True
+
+```
+for i in range(2, int(n ** 0.5) + 1):
+    if n % i == 0:
+        is_prime = False
+        break
+
+if is_prime:
+    print("Prime")
+else:
+    print("Not Prime")
+```
+
+==================================================
+
+# 39. PRINT PRIME NUMBERS
+
+==================================================
+
+for n in range(2, 51):
+
+```
+is_prime = True
+
+for i in range(2, int(n ** 0.5) + 1):
+    if n % i == 0:
+        is_prime = False
+        break
+
+if is_prime:
+    print(n)
+```
+
+==================================================
+
+# 40. FIBONACCI SERIES
+
+==================================================
+
+Fibonacci:
+
+0 1 1 2 3 5 8 13 21...
+
+Each number is the sum of the previous two numbers.
+
+Code:
+
+n = int(input("Enter number of terms: "))
+
+a = 0
+b = 1
+
+for i in range(n):
+print(a, end=" ")
+a, b = b, a + b
+
+==================================================
+
+# 41. ARMSTRONG NUMBER
+
+==================================================
+
+Example:
+
+153
+
+1³ + 5³ + 3³
+= 1 + 125 + 27
+= 153
+
+Therefore 153 is an Armstrong number.
+
+Code:
+
+n = int(input("Enter number: "))
+
+original = n
+digits = len(str(n))
+total = 0
+
+while n > 0:
+digit = n % 10
+total += digit ** digits
+n //= 10
+
+if total == original:
+print("Armstrong number")
+else:
+print("Not Armstrong number")
+
+==================================================
+
+# 42. FIND LARGEST ELEMENT IN LIST
+
+==================================================
+
+numbers = [10, 45, 23, 67, 12]
+
+largest = numbers[0]
+
+for num in numbers:
+if num > largest:
+largest = num
+
+print("Largest:", largest)
+
+==================================================
+
+# 43. FIND SMALLEST ELEMENT
+
+==================================================
+
+numbers = [10, 45, 23, 67, 12]
+
+smallest = numbers[0]
+
+for num in numbers:
+if num < smallest:
+smallest = num
+
+print("Smallest:", smallest)
+
+==================================================
+
+# 44. COUNT EVEN AND ODD NUMBERS IN LIST
+
+==================================================
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+
+even = 0
+odd = 0
+
+for num in numbers:
+
+```
+if num % 2 == 0:
+    even += 1
+else:
+    odd += 1
+```
+
+print("Even:", even)
+print("Odd:", odd)
+
+==================================================
+
+# 45. SUM OF LIST ELEMENTS
+
+==================================================
+
+numbers = [10, 20, 30, 40]
+
+total = 0
+
+for num in numbers:
+total += num
+
+print(total)
+
+==================================================
+
+# 46. SEARCH ELEMENT IN LIST
+
+==================================================
+
+numbers = [10, 20, 30, 40, 50]
+
+target = int(input("Enter number: "))
+
+found = False
+
+for num in numbers:
+if num == target:
+found = True
+break
+
+if found:
+print("Element found")
+else:
+print("Element not found")
+
+==================================================
+
+# 47. REMOVE DUPLICATES USING LOOP
+
+==================================================
+
+numbers = [1, 2, 2, 3, 4, 4, 5]
+
+unique = []
+
+for num in numbers:
+if num not in unique:
+unique.append(num)
+
+print(unique)
+
+Output:
+
+[1, 2, 3, 4, 5]
+
+==================================================
+
+# 48. COUNT VOWELS IN STRING
+
+==================================================
+
+text = input("Enter string: ")
+
+count = 0
+
+for ch in text:
+
+```
+if ch.lower() in "aeiou":
+    count += 1
+```
+
+print("Vowels:", count)
+
+==================================================
+
+# 49. COUNT CONSONANTS
+
+==================================================
+
+text = input("Enter string: ")
+
+count = 0
+
+for ch in text:
+
+```
+if ch.isalpha() and ch.lower() not in "aeiou":
+    count += 1
+```
+
+print("Consonants:", count)
+
+==================================================
+
+# 50. REVERSE STRING USING LOOP
+
+==================================================
+
+text = input("Enter string: ")
+
+reverse = ""
+
+for ch in text:
+reverse = ch + reverse
+
+print(reverse)
+
+==================================================
+
+# 51. PALINDROME STRING
+
+==================================================
+
+text = input("Enter string: ")
+
+reverse = ""
+
+for ch in text:
+reverse = ch + reverse
+
+if text == reverse:
+print("Palindrome")
+else:
+print("Not Palindrome")
+
+==================================================
+
+# 52. COUNT FREQUENCY OF CHARACTER
+
+==================================================
+
+text = input("Enter string: ")
+
+ch = input("Enter character: ")
+
+count = 0
+
+for char in text:
+if char == ch:
+count += 1
+
+print("Frequency:", count)
+
+==================================================
+
+# 53. FREQUENCY OF EACH CHARACTER
+
+==================================================
+
+text = "python"
+
+frequency = {}
+
+for ch in text:
+
+```
+if ch in frequency:
+    frequency[ch] += 1
+else:
+    frequency[ch] = 1
+```
+
+print(frequency)
+
+Output:
+
+{'p': 1, 'y': 1, 't': 1, 'h': 1, 'o': 1, 'n': 1}
+
+==================================================
+
+# 54. NESTED LOOP – STAR PATTERN
+
+==================================================
+
+*
+
+**
+
+---
+
+---
+
+---
+
+Code:
+
+for i in range(1, 6):
+
+```
+for j in range(i):
+    print("*", end="")
+
+print()
+```
+
+==================================================
+
+# 55. RIGHT TRIANGLE PATTERN
+
+==================================================
+
+1
+12
+123
+1234
+12345
+
+Code:
+
+for i in range(1, 6):
+
+```
+for j in range(1, i + 1):
+    print(j, end="")
+
+print()
+```
+
+==================================================
+
+# 56. REVERSE STAR PATTERN
+
+==================================================
+
+---
+
+---
+
+---
+
+**
+*
+
+Code:
+
+for i in range(5, 0, -1):
+
+```
+for j in range(i):
+    print("*", end="")
+
+print()
+```
+
+==================================================
+
+# 57. FULL PYRAMID
+
+==================================================
+
+```
+*
+```
+
+---
+
+---
+
+---
+
+---
+
+Code:
+
+n = 5
+
+for i in range(1, n + 1):
+
+```
+for space in range(n - i):
+    print(" ", end="")
+
+for star in range(2 * i - 1):
+    print("*", end="")
+
+print()
+```
+
+==================================================
+
+# 58. COMMON OUTPUT QUESTION
+
+==================================================
+
+Question:
+
+for i in range(5):
+print(i)
+
+Answer:
+
+0
+1
+2
+3
+4
+
+---
+
+Question:
+
+for i in range(1, 5):
+print(i)
+
+Answer:
+
+1
+2
+3
+4
+
+---
+
+Question:
+
+for i in range(1, 10, 2):
+print(i)
+
+Answer:
+
+1
+3
+5
+7
+9
+
+---
+
+Question:
+
+for i in range(10, 0, -2):
+print(i)
+
+Answer:
+
+10
+8
+6
+4
+2
+
+==================================================
+
+# 59. IMPORTANT OUTPUT QUESTION
+
+==================================================
+
+x = 0
+
+while x < 5:
+print(x)
+x += 1
+
+Output:
+
+0
+1
+2
+3
+4
+
+==================================================
+
+# 60. IMPORTANT BREAK QUESTION
+
+==================================================
+
+for i in range(1, 10):
+
+```
+if i == 5:
+    break
+
+print(i)
+```
+
+Output:
+
+1
+2
+3
+4
+
+==================================================
+
+# 61. IMPORTANT CONTINUE QUESTION
+
+==================================================
+
+for i in range(1, 6):
+
+```
+if i == 3:
+    continue
+
+print(i)
+```
+
+Output:
+
+1
+2
+4
+5
+
+==================================================
+
+# 62. IMPORTANT NESTED LOOP OUTPUT
+
+==================================================
+
+for i in range(1, 3):
+
+```
+for j in range(1, 4):
+    print(i, j)
+```
+
+Output:
+
+1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+
+Remember:
+
+Outer loop runs once.
+Inner loop completes all iterations.
+Then outer loop moves to next iteration.
+
+==================================================
+
+# 63. COMMON THEORY QUESTIONS
+
+==================================================
+
+Q1. What is a loop?
+
+Answer:
+
+A loop is a control structure used to repeatedly execute a block of code.
+
+Q2. What are the types of loops in Python?
+
+Answer:
+
+1. for loop
+2. while loop
+
+Q3. What is a for loop?
+
+Answer:
+
+A for loop is used to iterate over an iterable such as a string, list, tuple, set, dictionary or range.
+
+Q4. What is a while loop?
+
+Answer:
+
+A while loop executes a block of code repeatedly as long as its condition is True.
+
+Q5. What is range()?
+
+Answer:
+
+range() generates a sequence of numbers commonly used with for loops.
+
+Q6. Is the stop value included in range()?
+
+Answer:
+
+No. The stop value is excluded.
+
+Q7. What is break?
+
+Answer:
+
+break immediately terminates the nearest loop.
+
+Q8. What is continue?
+
+Answer:
+
+continue skips the current iteration and proceeds with the next iteration.
+
+Q9. What is pass?
+
+Answer:
+
+pass is a null statement that performs no operation. It is generally used as a placeholder.
+
+Q10. Difference between break and continue?
+
+Answer:
+
+break → terminates the loop.
+
+continue → skips only the current iteration.
+
+Q11. What is an infinite loop?
+
+Answer:
+
+A loop that never terminates because its condition always remains True.
+
+Example:
+
+while True:
+print("Hello")
+
+Q12. What is a nested loop?
+
+Answer:
+
+A loop placed inside another loop is called a nested loop.
+
+Q13. Can we use else with loops?
+
+Answer:
+
+Yes. Python supports else with both for and while loops.
+
+Q14. When does loop else execute?
+
+Answer:
+
+It executes when the loop finishes normally without encountering break.
+
+Q15. Can for loop iterate over a string?
+
+Answer:
+
+Yes.
+
+Q16. Can for loop iterate over a list?
+
+Answer:
+
+Yes.
+
+Q17. Can for loop iterate over a dictionary?
+
+Answer:
+
+Yes.
+
+Q18. What happens when we loop through a dictionary normally?
+
+Answer:
+
+We get its keys.
+
+Q19. How do we get dictionary values?
+
+Answer:
+
+Use:
+
+dictionary.values()
+
+Q20. How do we get both keys and values?
+
+Answer:
+
+Use:
+
+dictionary.items()
+
+Q21. What does len() do?
+
+Answer:
+
+len() returns the number of elements/characters in an object.
+
+Q22. What does enumerate() do?
+
+Answer:
+
+enumerate() provides both index and value while iterating.
+
+Q23. What does zip() do?
+
+Answer:
+
+zip() combines multiple iterables and allows us to iterate over them together.
+
+==================================================
+
+# 64. VERY IMPORTANT MENTOR QUESTIONS
+
+==================================================
+
+1. Explain for loop with syntax and example.
+
+2. Explain while loop with syntax and example.
+
+3. Difference between for and while.
+
+4. Explain range() with all three forms.
+
+5. Explain break, continue and pass.
+
+6. Difference between break and continue.
+
+7. What is an infinite loop?
+
+8. What is a nested loop?
+
+9. Explain loop with list.
+
+10. Explain loop with tuple.
+
+11. Explain loop with set.
+
+12. Explain loop with dictionary.
+
+13. How do you iterate through dictionary keys?
+
+14. How do you iterate through dictionary values?
+
+15. How do you iterate through dictionary key-value pairs?
+
+16. What is enumerate()?
+
+17. What is zip()?
+
+18. What is an accumulator?
+
+19. What is a counter?
+
+20. Can a loop have else?
+
+21. When does else execute with a loop?
+
+22. What happens when break is used inside a loop with else?
+
+23. How do you create an infinite loop?
+
+24. How do you stop an infinite loop?
+
+25. Explain nested loops with an example.
+
+==================================================
+
+# 65. CODING QUESTIONS – MUST PRACTICE
+
+==================================================
+
+These are HIGH PRIORITY questions for a training test.
+
+1. Print numbers from 1 to 10.
+
+2. Print numbers from 10 to 1.
+
+3. Print even numbers from 1 to 100.
+
+4. Print odd numbers from 1 to 100.
+
+5. Find sum of numbers from 1 to N.
+
+6. Find factorial of a number.
+
+7. Print multiplication table.
+
+8. Count digits of a number.
+
+9. Reverse a number.
+
+10. Find sum of digits.
+
+11. Find product of digits.
+
+12. Check palindrome number.
+
+13. Check prime number.
+
+14. Print prime numbers between 1 and N.
+
+15. Print Fibonacci series.
+
+16. Check Armstrong number.
+
+17. Print Armstrong numbers between 1 and N.
+
+18. Find largest number in a list.
+
+19. Find smallest number in a list.
+
+20. Find sum of list elements.
+
+21. Count even and odd elements in a list.
+
+22. Search an element in a list.
+
+23. Remove duplicates from a list.
+
+24. Reverse a string.
+
+25. Check palindrome string.
+
+26. Count vowels.
+
+27. Count consonants.
+
+28. Count occurrence of a character.
+
+29. Find frequency of each character.
+
+30. Print star patterns.
+
+31. Print number patterns.
+
+32. Iterate over dictionary.
+
+33. Print keys and values of dictionary.
+
+34. Find maximum value in dictionary.
+
+35. Find sum of dictionary values.
+
+==================================================
+
+# 66. MORE CHALLENGING QUESTIONS
+
+==================================================
+
+Mentors may give slightly modified versions of basic programs.
+
+---
+
+QUESTION 1
+Find second largest number in a list.
+-------------------------------------
+
+numbers = [10, 20, 40, 30, 50]
+
+largest = float('-inf')
+second = float('-inf')
+
+for num in numbers:
+
+```
+if num > largest:
+    second = largest
+    largest = num
+
+elif num > second and num != largest:
+    second = num
+```
+
+print("Second largest:", second)
+
+---
+
+QUESTION 2
+Count positive, negative and zero.
+----------------------------------
+
+numbers = [10, -5, 0, 20, -2, 0]
+
+positive = 0
+negative = 0
+zero = 0
+
+for num in numbers:
+
+```
+if num > 0:
+    positive += 1
+
+elif num < 0:
+    negative += 1
+
+else:
+    zero += 1
+```
+
+print("Positive:", positive)
+print("Negative:", negative)
+print("Zero:", zero)
+
+---
+
+QUESTION 3
+Find common elements in two lists.
+----------------------------------
+
+list1 = [1, 2, 3, 4]
+list2 = [3, 4, 5, 6]
+
+common = []
+
+for x in list1:
+
+```
+if x in list2:
+    common.append(x)
+```
+
+print(common)
+
+Output:
+
+[3, 4]
+
+---
+
+QUESTION 4
+Find duplicate elements.
+------------------------
+
+numbers = [1, 2, 3, 2, 4, 3, 5]
+
+duplicates = []
+
+for num in numbers:
+
+```
+if numbers.count(num) > 1 and num not in duplicates:
+    duplicates.append(num)
+```
+
+print(duplicates)
+
+Output:
+
+[2, 3]
+
+==================================================
+
+# 67. WHILE LOOP PRACTICE QUESTIONS
+
+==================================================
+
+You should especially practice these because mentors often ask them to test whether you actually understand while loops.
+
+1. Print 1 to 10 using while.
+
+2. Print 10 to 1 using while.
+
+3. Find sum 1 to N.
+
+4. Find factorial.
+
+5. Reverse number.
+
+6. Count digits.
+
+7. Sum digits.
+
+8. Product digits.
+
+9. Palindrome number.
+
+10. Armstrong number.
+
+11. Keep accepting numbers until user enters 0.
+
+Example:
+
+while True:
+
+```
+n = int(input("Enter number: "))
+
+if n == 0:
+    break
+
+print("You entered:", n)
+```
+
+==================================================
+
+# 68. MENU-DRIVEN PROGRAM USING WHILE
+
+==================================================
+
+This is a very useful training-test pattern.
+
+while True:
+
+```
+print("\n1. Add")
+print("2. Subtract")
+print("3. Exit")
+
+choice = int(input("Enter choice: "))
+
+if choice == 1:
+
+    a = int(input("Enter a: "))
+    b = int(input("Enter b: "))
+
+    print(a + b)
+
+elif choice == 2:
+
+    a = int(input("Enter a: "))
+    b = int(input("Enter b: "))
+
+    print(a - b)
+
+elif choice == 3:
+
+    print("Program ended")
+    break
+
+else:
+    print("Invalid choice")
+```
+
+==================================================
+
+# 69. IMPORTANT CONCEPT – ITERABLE
+
+==================================================
+
+An iterable is an object that can be iterated over.
+
+Examples:
+
+list
+tuple
+string
+set
+dictionary
+range
+
+Example:
+
+for x in [10, 20, 30]:
+print(x)
+
+The list is iterable.
+
+==================================================
+
+# 70. ITERATOR VS ITERABLE – BASIC IDEA
+
+==================================================
+
+Iterable:
+
+An object from which we can obtain an iterator.
+
+Examples:
+
+list
+tuple
+string
+
+Iterator:
+
+An object that produces elements one at a time using next().
+
+Example:
+
+numbers = [10, 20, 30]
+
+it = iter(numbers)
+
+print(next(it))
+print(next(it))
+print(next(it))
+
+Output:
+
+10
+20
+30
+
+This may be asked as a theory question in a Python training test.
+
+==================================================
+
+# 71. LIST COMPREHENSION
+
+==================================================
+
+List comprehension is a shorter way to create lists using an iteration.
+
+Normal loop:
+
+numbers = []
+
+for i in range(1, 6):
+numbers.append(i)
+
+List comprehension:
+
+numbers = [i for i in range(1, 6)]
+
+Output:
+
+[1, 2, 3, 4, 5]
+
+---
+
+## Even numbers:
+
+even = [i for i in range(1, 11) if i % 2 == 0]
+
+Output:
+
+[2, 4, 6, 8, 10]
+
+==================================================
+
+# 72. NESTED LIST + LOOP
+
+==================================================
+
+matrix = [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+]
+
+for row in matrix:
+
+```
+for value in row:
+    print(value, end=" ")
+
+print()
+```
+
+Output:
+
+1 2 3
+4 5 6
+7 8 9
+
+==================================================
+
+# 73. COMMON MISTAKES
+
+==================================================
+
+Mistake 1:
+
+for i in range(1, 5):
+print(i)
+
+Incorrect indentation.
+
+Correct:
+
+for i in range(1, 5):
+print(i)
+
+---
+
+Mistake 2:
+
+Infinite loop:
+
+i = 1
+
+while i <= 5:
+print(i)
+
+Correct:
+
+i = 1
+
+while i <= 5:
+print(i)
+i += 1
+
+---
+
+Mistake 3:
+
+Wrong range:
+
+range(1, 10)
+
+Does NOT include 10.
+
+It produces:
+
+1 to 9
+
+---
+
+Mistake 4:
+
+Using = instead of ==
+
+if i = 5:
+
+Wrong.
+
+Correct:
+
+if i == 5:
+
+---
+
+Mistake 5:
+
+Forgetting to update while variable.
+
+==================================================
+
+# 74. QUICK REVISION – RANGE()
+
+==================================================
+
+range(5)
+
+→ 0 1 2 3 4
+
+range(2, 5)
+
+→ 2 3 4
+
+range(1, 10, 2)
+
+→ 1 3 5 7 9
+
+range(10, 0, -1)
+
+→ 10 9 8 7 6 5 4 3 2 1
+
+range(10, 0, -2)
+
+→ 10 8 6 4 2
+
+==================================================
+
+# 75. QUICK REVISION – OPERATORS USED IN LOOP PROGRAMS
+
+==================================================
+
+%  → Modulus/remainder
+
+Example:
+
+10 % 3 = 1
+
+Useful for:
+
+* Even/odd
+* Digit extraction
+* Divisibility
+
+// → Floor/integer division
+
+Example:
+
+123 // 10 = 12
+
+Useful for:
+
+* Removing last digit
+* Counting digits
+* Reversing numbers
+
+** → Power
+
+Example:
+
+2 ** 3 = 8
+
+Useful for:
+
+* Armstrong numbers
+
++= → Add and assign
+
+total += num
+
+-= → Subtract and assign
+
+*= → Multiply and assign
+
+==================================================
+
+# 76. 15 QUESTIONS TO SOLVE WITHOUT LOOKING
+
+==================================================
+
+Try writing these yourself before checking your notes.
+
+1. Print numbers 1 to 20.
+
+2. Print numbers 20 to 1.
+
+3. Print multiples of 5 between 1 and 100.
+
+4. Find sum of even numbers from 1 to 100.
+
+5. Find factorial.
+
+6. Reverse a number.
+
+7. Check palindrome.
+
+8. Check prime.
+
+9. Print primes between 1 and 100.
+
+10. Generate Fibonacci series.
+
+11. Find largest element in a list.
+
+12. Find second largest element.
+
+13. Count vowels in a string.
+
+14. Reverse a string.
+
+15. Remove duplicates from a list.
+
+==================================================
+
+# 77. RAPID-FIRE THEORY REVISION
+
+==================================================
+
+FOR LOOP:
+
+for x in iterable:
+statements
+
+WHILE LOOP:
+
+while condition:
+statements
+
+BREAK:
+
+Stops loop completely.
+
+CONTINUE:
+
+Skips current iteration.
+
+PASS:
+
+Does nothing; placeholder.
+
+RANGE:
+
+Generates number sequence.
+
+ENUMERATE:
+
+Provides index + value.
+
+ZIP:
+
+Iterates over multiple iterables together.
+
+NESTED LOOP:
+
+Loop inside another loop.
+
+ITERABLE:
+
+Object that can be iterated.
+
+ACCUMULATOR:
+
+Stores a continuously updated result.
+
+COUNTER:
+
+Counts occurrences/iterations.
+
+INFINITE LOOP:
+
+Loop that never becomes False or is never stopped.
+
+==================================================
+
+# 78. MOST LIKELY TRAINING TEST CODING SET
+
+==================================================
+
+If your mentor gives a basic-to-medium Python training test, I would prioritize these in this exact order:
+
+⭐⭐⭐⭐⭐ 1. Factorial
+
+⭐⭐⭐⭐⭐ 2. Prime number
+
+⭐⭐⭐⭐⭐ 3. Palindrome number
+
+⭐⭐⭐⭐⭐ 4. Reverse number
+
+⭐⭐⭐⭐⭐ 5. Fibonacci
+
+⭐⭐⭐⭐⭐ 6. Armstrong number
+
+⭐⭐⭐⭐⭐ 7. Sum of digits
+
+⭐⭐⭐⭐⭐ 8. Count digits
+
+⭐⭐⭐⭐⭐ 9. Multiplication table
+
+⭐⭐⭐⭐⭐ 10. Even/odd numbers
+
+⭐⭐⭐⭐ 11. Largest/smallest in list
+
+⭐⭐⭐⭐ 12. Count vowels
+
+⭐⭐⭐⭐ 13. Reverse string
+
+⭐⭐⭐⭐ 14. Palindrome string
+
+⭐⭐⭐⭐ 15. Remove duplicates
+
+⭐⭐⭐⭐ 16. Search an element
+
+⭐⭐⭐⭐ 17. Frequency of elements
+
+⭐⭐⭐ 18. Nested loops
+
+⭐⭐⭐ 19. Star patterns
+
+⭐⭐⭐ 20. Dictionary traversal
+
+==================================================
+
+# 79. FINAL 10-MINUTE REVISION SHEET
+
+==================================================
+
+Remember these patterns:
+
+PATTERN 1:
+
+for i in range(start, stop):
+print(i)
+
+PATTERN 2:
+
+i = 1
+
+while i <= n:
+print(i)
+i += 1
+
+PATTERN 3:
+
+total = 0
+
+for x in data:
+total += x
+
+PATTERN 4:
+
+count = 0
+
+for x in data:
+if condition:
+count += 1
+
+PATTERN 5:
+
+for x in data:
+if condition:
+break
+
+PATTERN 6:
+
+for x in data:
+if condition:
+continue
+
+PATTERN 7:
+
+for key, value in dictionary.items():
+print(key, value)
+
+PATTERN 8:
+
+for index, value in enumerate(data):
+print(index, value)
+
+PATTERN 9:
+
+for a, b in zip(list1, list2):
+print(a, b)
+
+PATTERN 10:
+
+for i in range(...):
+
+```
+for j in range(...):
+    ...
+```
+
+==================================================
+
+# 80. EXAM STRATEGY
+
+==================================================
+
+When your mentor gives a coding question:
+
+STEP 1:
+Understand what the input is.
+
+STEP 2:
+Identify whether you need:
+
+for loop
+OR
+while loop
+
+STEP 3:
+Identify whether you need:
+
+counter
+accumulator
+flag
+temporary variable
+
+STEP 4:
+Write the basic logic.
+
+STEP 5:
+Test with a small example.
+
+STEP 6:
+Check edge cases.
+
+For example:
+
+Question:
+Check whether a number is palindrome.
+
+Think:
+
+Number → extract digits → reverse → compare with original.
+
+Variables:
+
+original
+reverse
+digit
+n
+
+Logic:
+
+digit = n % 10
+
+reverse = reverse * 10 + digit
+
+n = n // 10
+
+Finally:
+
+original == reverse
+
+==================================================
+
+# 81. GOLDEN RULES TO REMEMBER
+
+==================================================
+
+1. range() excludes the stop value.
+
+2. for loop is commonly used with iterables.
+
+3. while loop depends on a condition.
+
+4. Always update the control variable in a while loop.
+
+5. break terminates the loop.
+
+6. continue skips the current iteration.
+
+7. pass does nothing.
+
+8. Nested loops mean loop inside loop.
+
+9. % gives remainder.
+
+10. // performs integer/floor division.
+
+11. Lists, tuples, strings, sets and dictionaries can be iterated.
+
+12. Dictionary normally gives keys when directly iterated.
+
+13. .values() gives values.
+
+14. .items() gives key-value pairs.
+
+15. enumerate() gives index + value.
+
+16. zip() allows parallel iteration.
+
+17. Loop else executes when the loop completes normally.
+
+18. break prevents loop else from executing.
+
+19. An accumulator stores a result.
+
+20. A counter counts something.
+
+==================================================
+
+# 82. ONE-LINE DEFINITIONS FOR EXAM
+
+==================================================
+
+Loop:
+A loop repeatedly executes a block of code.
+
+For loop:
+A loop used to iterate over an iterable.
+
+While loop:
+A loop that executes while a condition is True.
+
+Range:
+A function that generates a sequence of numbers.
+
+Break:
+Terminates the loop.
+
+Continue:
+Skips the current iteration.
+
+Pass:
+A null statement used as a placeholder.
+
+Nested loop:
+A loop inside another loop.
+
+Iterable:
+An object that can be iterated over.
+
+Iterator:
+An object that returns elements one at a time.
+
+Counter:
+A variable used to count occurrences.
+
+Accumulator:
+A variable used to accumulate a result.
+
+Infinite loop:
+A loop that does not terminate.
+
+Enumeration:
+Iteration with index and value.
+
+==================================================
+
+# 83. FINAL PRACTICE CHALLENGE
+
+==================================================
+
+Try solving these WITHOUT looking at the answers:
+
+Q1. Print all numbers between 1 and 50 divisible by 3.
+
+Q2. Find the sum of all even numbers between 1 and 100.
+
+Q3. Find the factorial of a number using while.
+
+Q4. Reverse a number using while.
+
+Q5. Check whether a number is palindrome.
+
+Q6. Check whether a number is prime.
+
+Q7. Print all prime numbers between 1 and 100.
+
+Q8. Print Fibonacci series for N terms.
+
+Q9. Check Armstrong number.
+
+Q10. Find largest element in a list without using max().
+
+Q11. Find smallest element without using min().
+
+Q12. Count vowels in a string.
+
+Q13. Reverse a string without using [::-1].
+
+Q14. Find duplicate values in a list.
+
+Q15. Count frequency of every character in a string.
+
+Q16. Iterate through a dictionary and print keys and values.
+
+Q17. Create a multiplication table.
+
+Q18. Print this pattern:
+
+*
+
+**
+
+---
+
+---
+
+---
+
+Q19. Print:
+
+1
+12
+123
+1234
+12345
+
+Q20. Write a program using nested loops to print a 3 × 3 matrix.
+
+==================================================
+
+# ⭐ LAST-MINUTE MEMORY TRICK
+
+==================================================
+
+FOR:
+
+"FOR EACH ITEM"
+
+Example:
+
+for item in list:
+print(item)
+
+WHILE:
+
+"WHILE CONDITION IS TRUE"
+
+Example:
+
+while i <= 10:
+print(i)
+i += 1
+
+BREAK:
+
+"STOP"
+
+CONTINUE:
+
+"SKIP"
+
+PASS:
+
+"DO NOTHING"
+
+%:
+
+"REMAINDER"
+
+//:
+
+"REMOVE LAST DIGIT"
+
+enumerate():
+
+"INDEX + VALUE"
+
+zip():
+
+"MULTIPLE LISTS TOGETHER"
+
+Nested loop:
+
+"OUTER × INNER"
+
+==================================================
+
+# END OF LOOPS REVISION NOTEBOOK
+
+==================================================
