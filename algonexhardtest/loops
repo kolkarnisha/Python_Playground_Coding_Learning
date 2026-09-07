@@ -1,0 +1,556 @@
+# Python Loops – Complete Exam Prep
+
+---
+
+## SECTION 1: THEORY (Definitions & Concepts)
+
+### Q1. What is a loop? Why do we use it?
+A loop is a control structure that repeats a block of code multiple times until a condition is met. It avoids writing repetitive code and is used for tasks like iterating over data, repeating calculations, or automating repetitive actions.
+
+### Q2. What types of loops does Python support?
+Python supports two loop types:
+1. **for loop** – used when the number of iterations is known or when iterating over a sequence (list, tuple, string, dict, set, range).
+2. **while loop** – used when the number of iterations is NOT known in advance and depends on a condition being true.
+
+Python does **not** have a built-in `do-while` loop (unlike C/Java), but it can be simulated.
+
+### Q3. Difference between `for` and `while` loop
+
+| Feature | for loop | while loop |
+|---|---|---|
+| Use case | Known number of iterations / iterating a sequence | Condition-based, unknown iterations |
+| Syntax | `for i in sequence:` | `while condition:` |
+| Risk of infinite loop | Low | High (if condition never becomes False) |
+| Common use | Traversing lists, strings, dicts, ranges | Menu-driven programs, user input validation |
+
+### Q4. What is `range()`? Explain its parameters.
+`range(start, stop, step)` generates a sequence of numbers.
+- `start` – starting number (default 0)
+- `stop` – ending number (exclusive, NOT included)
+- `step` – increment/decrement value (default 1)
+
+```python
+range(5)          # 0,1,2,3,4
+range(2, 8)       # 2,3,4,5,6,7
+range(1, 10, 2)   # 1,3,5,7,9
+range(10, 0, -1)  # 10,9,8,...,1
+```
+
+### Q5. What is a nested loop?
+A loop inside another loop. The inner loop completes all its iterations for each single iteration of the outer loop. Commonly used for pattern printing, matrices (2D lists), and comparing pairs of elements.
+
+### Q6. Explain `break`, `continue`, and `pass`.
+- **break** – terminates the loop immediately, control moves to the statement after the loop.
+- **continue** – skips the current iteration and moves to the next iteration of the loop.
+- **pass** – does nothing; it's a placeholder used when a statement is syntactically required but no action is needed.
+
+### Q7. What is the `else` clause in a loop? (Important, often asked)
+Python loops (`for`/`while`) can have an `else` block. The `else` executes **only if the loop completes normally without hitting a `break`**.
+
+```python
+for i in range(5):
+    if i == 10:
+        break
+else:
+    print("Loop finished without break")   # This will execute
+```
+Used commonly in searching algorithms (search not found → else runs).
+
+### Q8. What is an infinite loop? Give an example and how to avoid it.
+A loop that never terminates because its condition is always True.
+```python
+while True:
+    print("Runs forever")   # no break, no condition change
+```
+Avoid by: ensuring the condition variable is updated inside the loop, or by placing proper `break` conditions.
+
+### Q9. What is loop control variable / iterator?
+The variable that takes each value in a sequence one at a time in a for loop (e.g., `i` in `for i in range(5):`).
+
+### Q10. Difference between iterable and iterator.
+- **Iterable** – an object capable of returning its members one at a time (list, tuple, string, dict, set).
+- **Iterator** – an object with a `__next__()` method that produces the next value; created from an iterable using `iter()`.
+
+### Q11. What is a list comprehension? How does it relate to loops?
+A concise way to create lists using a single line of code instead of a full `for` loop.
+```python
+squares = [x*x for x in range(1, 6)]   # [1,4,9,16,25]
+# equivalent to:
+squares = []
+for x in range(1, 6):
+    squares.append(x*x)
+```
+Also exists for dict `{k:v for ...}` and set `{x for ...}` comprehensions.
+
+### Q12. What does `enumerate()` do?
+Returns both the index and value while looping over a sequence.
+```python
+for index, value in enumerate(['a','b','c']):
+    print(index, value)
+# 0 a
+# 1 b
+# 2 c
+```
+
+### Q13. What does `zip()` do in loops?
+Combines two or more iterables element-wise so you can loop over them together.
+```python
+names = ['Tom','Jane']
+marks = [90, 85]
+for n, m in zip(names, marks):
+    print(n, m)
+```
+
+### Q14. How do you loop over a dictionary? (Data Structure + Loop – IMPORTANT)
+```python
+d = {'a':1, 'b':2, 'c':3}
+for key in d:                 # loops over keys
+    print(key)
+for key, value in d.items():  # loops over key-value pairs
+    print(key, value)
+for value in d.values():      # loops over values only
+    print(value)
+```
+
+### Q15. How do you loop over a 2D list (matrix)?
+```python
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+for row in matrix:
+    for element in row:
+        print(element, end=" ")
+    print()
+```
+
+### Q16. Can you modify a list while looping over it? What's the risk?
+Modifying a list (adding/removing elements) while iterating over it directly can cause skipped elements or runtime errors. Safer approach: iterate over a copy (`list[:]`) or use list comprehension to build a new list.
+
+### Q17. What is the time complexity consideration of nested loops?
+A single loop over n elements is O(n). A loop nested inside another loop (each running n times) is O(n²). This is important when discussing efficiency of loop-based algorithms like bubble sort.
+
+### Q18. Difference between `break` in nested loops – does it break both loops?
+No. `break` only exits the **innermost** loop it is written in. To break out of multiple nested loops, you typically use a flag variable or a function with `return`.
+
+### Q19. What is the difference between `while` and `while-else`?
+Same relationship as `for-else`: the `else` block executes only if the while condition becomes False naturally (no `break` used).
+
+### Q20. Explain how loops work with strings (a string is iterable).
+```python
+for ch in "hello":
+    print(ch)
+```
+Strings are treated as a sequence of characters, so `for` loops iterate character by character, similar to a list of characters.
+
+---
+
+## SECTION 2: COMMONLY ASKED CODING QUESTIONS (with solutions)
+
+### 1. Print numbers from 1 to N
+```python
+n = 10
+for i in range(1, n+1):
+    print(i)
+```
+
+### 2. Print even/odd numbers in a range
+```python
+for i in range(1, 21):
+    if i % 2 == 0:
+        print(i, "Even")
+    else:
+        print(i, "Odd")
+```
+
+### 3. Sum of first N natural numbers
+```python
+n = 10
+total = 0
+for i in range(1, n+1):
+    total += i
+print("Sum =", total)
+```
+
+### 4. Factorial of a number (using while)
+```python
+n = 5
+fact = 1
+i = 1
+while i <= n:
+    fact *= i
+    i += 1
+print("Factorial =", fact)
+```
+
+### 5. Check if a number is prime
+```python
+n = 29
+is_prime = True
+if n < 2:
+    is_prime = False
+for i in range(2, int(n**0.5)+1):
+    if n % i == 0:
+        is_prime = False
+        break
+print("Prime" if is_prime else "Not Prime")
+```
+
+### 6. Print Fibonacci series up to N terms
+```python
+n = 10
+a, b = 0, 1
+for _ in range(n):
+    print(a, end=" ")
+    a, b = b, a+b
+```
+
+### 7. Reverse a number
+```python
+num = 1234
+rev = 0
+while num > 0:
+    digit = num % 10
+    rev = rev * 10 + digit
+    num //= 10
+print("Reversed:", rev)
+```
+
+### 8. Check palindrome number
+```python
+num = 121
+temp = num
+rev = 0
+while temp > 0:
+    rev = rev * 10 + temp % 10
+    temp //= 10
+print("Palindrome" if rev == num else "Not Palindrome")
+```
+
+### 9. Check palindrome string
+```python
+s = "madam"
+if s == s[::-1]:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+# Loop version (without slicing) - often asked to test loop logic
+s = "madam"
+is_pal = True
+for i in range(len(s)//2):
+    if s[i] != s[len(s)-1-i]:
+        is_pal = False
+        break
+print("Palindrome" if is_pal else "Not Palindrome")
+```
+
+### 10. Sum of digits of a number
+```python
+num = 12345
+total = 0
+while num > 0:
+    total += num % 10
+    num //= 10
+print("Sum of digits:", total)
+```
+
+### 11. Count vowels in a string
+```python
+s = "Hello World"
+count = 0
+for ch in s.lower():
+    if ch in "aeiou":
+        count += 1
+print("Vowels:", count)
+```
+
+### 12. Find largest/smallest number in a list
+```python
+nums = [23, 5, 67, 12, 89, 1]
+largest = nums[0]
+smallest = nums[0]
+for n in nums:
+    if n > largest:
+        largest = n
+    if n < smallest:
+        smallest = n
+print("Largest:", largest, "Smallest:", smallest)
+```
+
+### 13. Count occurrences of each element in a list (using dict)
+```python
+lst = [1, 2, 2, 3, 3, 3, 4]
+freq = {}
+for item in lst:
+    if item in freq:
+        freq[item] += 1
+    else:
+        freq[item] = 1
+print(freq)
+```
+
+### 14. Remove duplicates from a list without using set()
+```python
+lst = [1, 2, 2, 3, 4, 4, 5]
+result = []
+for item in lst:
+    if item not in result:
+        result.append(item)
+print(result)
+```
+
+### 15. Linear search in a list (uses for-else)
+```python
+lst = [4, 8, 15, 16, 23, 42]
+target = 16
+for i in range(len(lst)):
+    if lst[i] == target:
+        print("Found at index", i)
+        break
+else:
+    print("Not found")
+```
+
+### 16. Bubble sort (classic nested loop question)
+```python
+lst = [5, 2, 9, 1, 5, 6]
+n = len(lst)
+for i in range(n):
+    for j in range(0, n-i-1):
+        if lst[j] > lst[j+1]:
+            lst[j], lst[j+1] = lst[j+1], lst[j]
+print(lst)
+```
+
+### 17. Multiplication table using nested/for loop
+```python
+n = 5
+for i in range(1, 11):
+    print(f"{n} x {i} = {n*i}")
+```
+
+### 18. Pattern printing – Right triangle of stars
+```python
+rows = 5
+for i in range(1, rows+1):
+    print("*" * i)
+```
+
+### 19. Pattern printing – Pyramid
+```python
+rows = 5
+for i in range(1, rows+1):
+    print(" "*(rows-i) + "*"*(2*i-1))
+```
+
+### 20. Pattern printing – Number triangle
+```python
+rows = 5
+for i in range(1, rows+1):
+    for j in range(1, i+1):
+        print(j, end=" ")
+    print()
+```
+
+### 21. Matrix addition using nested loops
+```python
+A = [[1,2],[3,4]]
+B = [[5,6],[7,8]]
+result = [[0,0],[0,0]]
+for i in range(len(A)):
+    for j in range(len(A[0])):
+        result[i][j] = A[i][j] + B[i][j]
+print(result)
+```
+
+### 22. Transpose of a matrix
+```python
+matrix = [[1,2,3],[4,5,6]]
+transpose = [[0 for _ in range(len(matrix))] for _ in range(len(matrix[0]))]
+for i in range(len(matrix)):
+    for j in range(len(matrix[0])):
+        transpose[j][i] = matrix[i][j]
+print(transpose)
+```
+
+### 23. GCD of two numbers using while loop
+```python
+a, b = 36, 60
+while b:
+    a, b = b, a % b
+print("GCD:", a)
+```
+
+### 24. Armstrong number check
+```python
+num = 153
+temp = num
+total = 0
+n = len(str(num))
+while temp > 0:
+    digit = temp % 10
+    total += digit ** n
+    temp //= 10
+print("Armstrong" if total == num else "Not Armstrong")
+```
+
+### 25. Simulating do-while loop in Python
+```python
+# Python has no do-while, so simulate using while True + break
+i = 1
+while True:
+    print(i)
+    i += 1
+    if i > 5:
+        break
+```
+
+### 26. Using continue to skip elements
+```python
+for i in range(1, 11):
+    if i % 3 == 0:
+        continue
+    print(i)   # prints 1,2,4,5,7,8,10 (skips multiples of 3)
+```
+
+### 27. Sum of elements in a nested list (2D list)
+```python
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+total = 0
+for row in matrix:
+    for val in row:
+        total += val
+print("Total sum:", total)
+```
+
+### 28. Word frequency counter from a sentence (list + dict + loop)
+```python
+sentence = "the quick brown fox the lazy dog the fox"
+words = sentence.split()
+freq = {}
+for word in words:
+    freq[word] = freq.get(word, 0) + 1
+print(freq)
+```
+
+### 29. Set operations using loops (data structure focus)
+```python
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+common = set()
+for item in a:
+    if item in b:
+        common.add(item)
+print("Common elements:", common)
+```
+
+### 30. Tuple iteration with condition
+```python
+points = [(1,2), (3,4), (5,6)]
+for x, y in points:
+    print(f"x={x}, y={y}, sum={x+y}")
+```
+
+---
+
+## SECTION 3: OUTPUT PREDICTION QUESTIONS (Tricky – frequently asked in exams)
+
+**Q1.**
+```python
+for i in range(3):
+    print(i)
+else:
+    print("Done")
+```
+**Answer:** `0 1 2 Done` (else always runs unless break happens)
+
+**Q2.**
+```python
+i = 0
+while i < 5:
+    i += 1
+    if i == 3:
+        continue
+    print(i)
+```
+**Answer:** `1 2 4 5` (3 is skipped)
+
+**Q3.**
+```python
+for i in range(2):
+    for j in range(2):
+        if j == 1:
+            break
+        print(i, j)
+```
+**Answer:** `0 0` `1 0` (inner loop breaks before printing j=1, each outer iteration)
+
+**Q4.**
+```python
+x = [1, 2, 3]
+for i in x:
+    x.append(i)
+    if len(x) > 6:
+        break
+print(x)
+```
+**Answer:** Demonstrates danger of modifying a list while iterating — grows until break condition met: `[1, 2, 3, 1, 2, 3, 1]`
+
+**Q5.**
+```python
+count = 0
+while count < 3:
+    count += 1
+else:
+    print("while-else executed", count)
+```
+**Answer:** `while-else executed 3`
+
+---
+
+## SECTION 4: DEBUGGING QUESTIONS (mentor favorite — find the bug)
+
+**Q1. Find the bug:**
+```python
+i = 1
+while i < 5:
+    print(i)
+# missing i += 1 -> infinite loop
+```
+**Fix:** Add `i += 1` inside the loop.
+
+**Q2. Find the bug:**
+```python
+for i in range(1, 10):
+    if i = 5:      # should be ==
+        print("Found")
+```
+**Fix:** Use `==` for comparison, `=` is assignment.
+
+**Q3. Find the bug (off-by-one error):**
+```python
+n = 5
+total = 0
+for i in range(1, n):    # misses last number
+    total += i
+```
+**Fix:** Use `range(1, n+1)` to include n.
+
+---
+
+## SECTION 5: QUICK REVISION – KEY POINTS TO REMEMBER
+
+- `for` → known/definite iterations, works on iterables.
+- `while` → condition-based, indefinite iterations.
+- `range(start, stop, step)` → stop is exclusive.
+- `break` exits loop completely; `continue` skips current iteration; `pass` does nothing.
+- `else` with loop runs only if no `break` occurred.
+- Nested loops → outer runs once, inner runs fully each time → O(n²) generally.
+- Loops work on all iterables: list, tuple, string, set, dict, range.
+- Dict looping: `.keys()`, `.values()`, `.items()`.
+- `enumerate()` → index + value; `zip()` → parallel iteration of multiple sequences.
+- List comprehension is a compact loop: `[expr for item in iterable if condition]`.
+- Avoid modifying a list while iterating over it directly.
+- Python has NO built-in do-while; simulate with `while True` + `break`.
+
+---
+
+**Good luck for your exam tomorrow!**
