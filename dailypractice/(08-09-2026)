@@ -1,0 +1,144 @@
+Python 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+for i in range(1,11):
+    if i%2==0:
+        print(i)
+
+        
+2
+4
+6
+8
+10
+'''👉 Write a for loop in Python that prints all even numbers between 1 and 10.'''
+'👉 Write a for loop in Python that prints all even numbers between 1 and 10.'
+'''👉 Write a while loop in Python that prints numbers from 10 down to 1.'''
+'👉 Write a while loop in Python that prints numbers from 10 down to 1.'
+i=10
+while i>=1:
+    print(i)
+    i-=1
+
+    
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+'''👉 Write a program using if, elif, and else that checks if a number is positive, negative, or zero.'''
+'👉 Write a program using if, elif, and else that checks if a number is positive, negative, or zero.'
+def find(num):
+    if num==0:
+        print("num is zero")
+    elif num>0:
+        print("num is positive")
+    else:
+        print("num is negative")
+
+        
+def find(num):
+    if num==0:
+        print("num is zero")
+    elif num>0:
+        print("num is positive")
+    else:
+        print("num is negative")
+find(2)
+SyntaxError: invalid syntax
+'''👉 Write a condition in Python that checks if a number is divisible by both 3 and 5, and prints "Divisible by 3 and 5" if true, otherwise "Not divisible by both".'''
+'👉 Write a condition in Python that checks if a number is divisible by both 3 and 5, and prints "Divisible by 3 and 5" if true, otherwise "Not divisible by both".'
+def div(num):
+    if num/3 and num/5:
+        print("divisible by both")
+    else:
+        print("not")
+div(20)
+SyntaxError: invalid syntax
+
+def div(num):
+    if num % 3 == 0 and num % 5 == 0:
+        print("divisible by both")
+    else:
+        print("not divisible by both")
+
+div(20)
+div(15)
+
+SyntaxError: invalid syntax
+'''👉 Loop through numbers 1 to 20 and print "Odd" if the number is odd, and "Even" if the number is even.'''
+'👉 Loop through numbers 1 to 20 and print "Odd" if the number is odd, and "Even" if the number is even.'
+def loop():,
+SyntaxError: invalid syntax
+def loop():
+    for i in range(1,21):
+        if i%2==0:
+            print(i,"even")
+        else:
+            print(i,"odd")
+loop()
+SyntaxError: invalid syntax
+'''👉 Write a loop from 1 to 50 that prints "Fizz" if the number is divisible by 3, "Buzz" if divisible by 5, and "FizzBuzz" if divisible by both.'''
+'👉 Write a loop from 1 to 50 that prints "Fizz" if the number is divisible by 3, "Buzz" if divisible by 5, and "FizzBuzz" if divisible by both.'
+
+    for i in range(1,51):
+        if num%3==0:
+            print("fizz")
+        elif num%5==0:
+            print("buzz")
+        elif num%3==0 and num%5==0:
+            print("fizzbuzz")
+            
+SyntaxError: unexpected indent
+
+'''👉 Write a loop that goes through a list of numbers and prints only those that are greater than 100.'''
+'👉 Write a loop that goes through a list of numbers and prints only those that are greater than 100.'
+def array():
+    numbers=[50,120,300,75,200]
+    for i in numbers:
+        if i>100:
+            print(i)
+
+            
+def array():
+    numbers=[50,120,300,75,200]
+    for i in numbers:
+        if i>100:
+            print(i)
+array()
+SyntaxError: invalid syntax
+'''👉 Write a loop that counts how many odd numbers are in this list:'''
+'👉 Write a loop that counts how many odd numbers are in this list:'
+def count():
+    numbers=[10,15,22,33,47,50,60,71]
+    cont=[]
+    for i in numbers:
+        if i%2!=0:
+            cont.append(i)
+        print(cont)
+count()
+
+def count():
+    numbers=[10, 15, 22, 33, 47, 50, 60, 71]
+    odd_count=0
+    for i in numbers:
+        if i$2!=0:
+            odd_count+=1
+    print("numbers of odd count",odd_count)
+count()
+'''
+👉 Write a loop that goes through a list of names and prints only those that start with the letter "A".'''
+def names_starting_with_A():
+    names = ["Alice", "Bob", "Anita", "Charlie", "Arjun"]
+    for name in names:
+        if name.startswith("A"):
+            print(name)
+
+names_starting_with_A()
+
+SyntaxError: invalid syntax
+
