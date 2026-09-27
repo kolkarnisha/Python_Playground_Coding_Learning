@@ -11,7 +11,6 @@ emp=employee("nisha")
 print("working with object")
 del emp
 print("programming finished")
-
 '''garbagecollecter enabled: True
 nishaobject created
 working with object
