@@ -4,7 +4,7 @@ Encapsulation -> Protect Data
 Inheritance -> Reuse Code
 Polymorphism -> One Interface, Multiple Behaviors
 
-Abstraction means hiding implementation details -> But Why do we want to hide implementation details?
+Abstraction means hiding implementation details -> But Why do we want to hide implementation details? 
 Example Scenario:
 When you drive a bike, Do you know how:
 - Fuel Injection Works?
