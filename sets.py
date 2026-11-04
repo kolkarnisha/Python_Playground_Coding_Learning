@@ -7,7 +7,7 @@ set.update([8,9])
 print(set)
 set.remove(10)
 set.discard("nisha")#no error if missing
-set.pop()  #sets are unordered so a random element removed
+set.pop()  #sets are unordered so a random element removed 
 print(1 in set)
 set.clear()
 set1={21,22,23,23,21,24}
