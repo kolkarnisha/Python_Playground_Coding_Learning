@@ -3,7 +3,7 @@ dict={"k1":"v1","k2":"v2","k3":"v3"}
 print(dict)
 print(dict.keys())
 print(dict.values())
-dict.update({"k3":"gangeshpasala"})
+dict.update({"k3":"gangeshpasala"}) 
 print(dict)
 #a=dict("k"=="algonex")
 # a=dict(["n",20])
